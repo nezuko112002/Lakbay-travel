@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link active">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="contact.html" class="nav-link active">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Contact</span></nav>
+      <span class="page-hero-label">Get in Touch</span>
+      <h1>We'd Love to Hear<br/><em style="font-style:italic;color:var(--gold);">From You</em></h1>
+      <p>Questions, custom itineraries, group bookings — our Filipino travel experts are ready to help.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:56px;">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <!-- LEFT: Info -->
+        <div>
+          <div class="contact-info-card">
+            <h3>Contact Details</h3>
+            <p>Reach us through any of these channels. We respond within 2 hours during business hours.</p>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-item-label">Phone / Viber</div>
+                <div class="contact-item-val">+63 2 8888 LAKBAY</div>
+                <div class="contact-item-val">+63 917 888 5229</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-val">hello@lakbay.ph</div>
+                <div class="contact-item-val">bookings@lakbay.ph</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-item-label">Main Office</div>
+                <div class="contact-item-val">3F Ayala Avenue Tower, Makati City</div>
+                <div class="contact-item-val">Metro Manila 1226</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <div class="contact-item-label">Office Hours</div>
+                <div class="contact-item-val">Mon–Fri: 8:00 AM – 9:00 PM</div>
+                <div class="contact-item-val">Sat: 9:00 AM – 6:00 PM</div>
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:24px;margin-top:8px;">
+              <div style="font-size:0.78rem;opacity:0.6;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Branch Offices</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="font-size:0.85rem;">🏝 Cebu City — IT Park, Lahug</div>
+                <div style="font-size:0.85rem;">🌴 Davao City — Lanang Business Park</div>
+                <div style="font-size:0.85rem;">🏖 Puerto Princesa — Palawan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div>
+          <div class="contact-form-card" id="formPanel">
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:6px;">Send Us a Message</h3>
+            <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.875rem;">Whether it's a quick question or a full custom itinerary request, we're here.</p>
+
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" id="cfirst" placeholder="Juan" /></div>
+              <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" id="clast" placeholder="dela Cruz" /></div>
+            </div>
+            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="cemail" placeholder="juan@email.com" /></div>
+            <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="cphone" placeholder="+63 9XX XXX XXXX" /></div>
+            <div class="form-group">
+              <label class="form-label">Inquiry Type</label>
+              <select class="form-select" id="ctype">
+                <option value="">Select inquiry type</option>
+                <option>Flight Booking</option>
+                <option>Tour Package</option>
+                <option>Hotel Reservation</option>
+                <option>Custom Itinerary</option>
+                <option>Group Booking (10+ pax)</option>
+                <option>Honeymoon / Special Occasion</option>
+                <option>Track Existing Booking</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Destination (if known)</label>
+              <input type="text" class="form-input" placeholder="e.g. El Nido, Palawan" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-input" id="cmessage" rows="4" placeholder="Tell us about your dream trip, travel dates, number of travelers, budget, or any special requests…" style="resize:vertical;"></textarea>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+              <input type="checkbox" id="consent" style="margin-top:3px;accent-color:var(--ocean);" />
+              <label for="consent" style="font-size:0.82rem;color:var(--text-muted);cursor:pointer;">I agree to be contacted by Lakbay Travel Agency regarding my inquiry. My data will not be shared with third parties.</label>
+            </div>
+            <button onclick="submitForm()" class="btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:1rem;">Send Message ✈</button>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div id="successPanel" style="display:none;text-align:center;padding:60px 40px;background:white;border-radius:var(--radius-xl);box-shadow:var(--shadow-md);border:1px solid var(--border);">
+            <div style="width:72px;height:72px;background:var(--tropical-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 20px;">✅</div>
+            <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--tropical);margin-bottom:12px;">Message Sent!</h3>
+            <p style="color:var(--text-muted);margin-bottom:8px;">Thank you for reaching out, <strong id="senderName">Traveler</strong>!</p>
+            <p style="color:var(--text-muted);margin-bottom:32px;">Our team will get back to you within 2 business hours. Check your email for a confirmation.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+              <a href="search.html" class="btn-primary">Browse Destinations →</a>
+              <a href="tracker.html" class="btn-outline">Track Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:var(--ocean-pale);">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-label">Help Center</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px;">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I book a trip with Lakbay? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Browse our destinations, add items to your Yellow Basket, fill in traveler details, and complete payment. You'll receive a booking reference immediately. You can also call or email us for assisted bookings.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I mix flights, tours, and hotels in one booking? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Absolutely! Our Yellow Basket lets you add any combination of flights, tours, and hotels and check out in one step. This is the most popular way our travelers book — everything in one confirmation.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is your cancellation policy? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Free cancellation up to 14 days before travel. 50% refund for cancellations 7–13 days before. Non-refundable within 7 days, but we offer free date change once. Please see our full Terms of Service.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you offer group discounts? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Yes! Groups of 10+ passengers receive 10–20% discounts depending on destination and season. Corporate and incentive travel packages also available. Contact us directly for a custom quote.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I track my booking? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Visit our <a href="tracker.html" style="color:var(--ocean);">Booking Tracker</a> page and enter your booking reference (format: LKB-XXXXXX). You'll see real-time status updates on all your travel items.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">We accept all major credit/debit cards (Visa, Mastercard), GCash, Maya, BPI online banking, BDO online banking, and bank transfer. Installment via credit card available for bookings ₱10,000+.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to Plan Your Trip?</h2>
+      <p>Our experts are online now. Start planning your perfect Philippine adventure.</p>
+      <div class="cta-btns">
+        <a href="search.html" class="btn-white">Browse Packages 🏝</a>
+        <a href="tracker.html" class="btn-woutline">Track My Booking</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div><div class="footer-tagline">Full-service Philippine travel agency. DOT Accredited. Filipino-owned.</div></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="search.html" class="footer-link">Destinations</a><a href="cart.html" class="footer-link">Booking Basket</a><a href="tracker.html" class="footer-link">Track Booking</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a href="about.html#team" class="footer-link">Our Team</a><a href="suppliers.html" class="footer-link">Partners</a></div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links"><div class="footer-link">📞 +63 2 8888 LAKBAY</div><div class="footer-link">📧 hello@lakbay.ph</div><div class="footer-link">📍 Makati City, Manila</div><div class="footer-link">⏰ Mon–Sat 8AM–9PM</div></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<style>
+.faq-item { background:white;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden; }
+.faq-q { width:100%;text-align:left;padding:18px 20px;font-size:0.9rem;font-weight:600;color:var(--text-dark);display:flex;justify-content:space-between;align-items:center;transition:background 0.2s; }
+.faq-q:hover { background:var(--ocean-pale); }
+.faq-q.open { color:var(--ocean); }
+.faq-arrow { font-size:0.75rem;transition:transform 0.2s;flex-shrink:0;margin-left:12px; }
+.faq-q.open .faq-arrow { transform:rotate(180deg); }
+.faq-a { display:none;padding:0 20px 18px;font-size:0.875rem;color:var(--text-mid);line-height:1.7; }
+.faq-a.open { display:block; }
+</style>
+
+<script>
+function submitForm() {
+  const first = document.getElementById('cfirst').value.trim();
+  const email = document.getElementById('cemail').value.trim();
+  if (!first || !email) {
+    alert('Please fill in at least your first name and email.');
+    return;
+  }
+  document.getElementById('senderName').textContent = first;
+  document.getElementById('formPanel').style.display = 'none';
+  document.getElementById('successPanel').style.display = 'block';
+}
+
+function toggleFaq(btn) {
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+  if (!isOpen) { btn.classList.add('open'); btn.nextElementSibling.classList.add('open'); }
+}
+
+function updateCartCount() { const c=JSON.parse(localStorage.getItem('lakbayCart')||'[]'); document.getElementById('cartCount').textContent=c.length; }
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+updateCartCount();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>

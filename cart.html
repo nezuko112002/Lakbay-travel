@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Basket — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="cart.html" class="nav-link active">Basket</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero" style="padding:56px 5%;">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Your Basket</span></nav>
+      <span class="page-hero-label">🧺 Yellow Basket</span>
+      <h1>Your Travel Basket</h1>
+      <p>Review your selected flights, tours, and hotels before checkout.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <div class="section-inner">
+
+      <!-- STEP INDICATOR -->
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:48px;max-width:600px;">
+        <div class="checkout-step active">
+          <div class="cs-num">1</div>
+          <div class="cs-label">Review Basket</div>
+        </div>
+        <div class="cs-line"></div>
+        <div class="checkout-step" id="step2">
+          <div class="cs-num">2</div>
+          <div class="cs-label">Your Details</div>
+        </div>
+        <div class="cs-line"></div>
+        <div class="checkout-step" id="step3">
+          <div class="cs-num">3</div>
+          <div class="cs-label">Payment</div>
+        </div>
+        <div class="cs-line"></div>
+        <div class="checkout-step" id="step4">
+          <div class="cs-num">4</div>
+          <div class="cs-label">Confirmed</div>
+        </div>
+      </div>
+
+      <!-- STEP 1: BASKET -->
+      <div id="viewStep1">
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;">
+          <div>
+            <div id="cartItems"></div>
+            <div id="emptyCart" style="display:none;text-align:center;padding:60px 20px;background:white;border-radius:var(--radius-xl);border:1px solid var(--border);">
+              <div style="font-size:4rem;margin-bottom:16px;">🧺</div>
+              <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px;">Your basket is empty</h3>
+              <p style="color:var(--text-muted);margin-bottom:24px;">Add tours, flights, or hotels from our destinations page.</p>
+              <a href="search.html" class="btn-primary">Browse Destinations →</a>
+            </div>
+          </div>
+
+          <!-- ORDER SUMMARY -->
+          <div id="summaryPanel" style="display:none;">
+            <div style="background:white;border-radius:var(--radius-xl);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-md);position:sticky;top:90px;">
+              <div style="background:var(--ocean);padding:20px 24px;">
+                <h3 style="font-family:var(--font-display);font-size:1.3rem;color:white;font-weight:600;">Order Summary</h3>
+              </div>
+              <div style="padding:24px;">
+                <div id="summaryLines"></div>
+                <div style="border-top:2px dashed var(--border);padding-top:16px;margin-top:8px;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.875rem;color:var(--text-muted);margin-bottom:8px;">
+                    <span>Subtotal</span><span id="subtotal">₱0</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.875rem;color:var(--text-muted);margin-bottom:8px;">
+                    <span>Service Fee (2%)</span><span id="serviceFee">₱0</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.875rem;color:var(--tropical);font-weight:600;margin-bottom:8px;">
+                    <span>🎉 Discount</span><span id="discountLine">-₱0</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:1.2rem;font-family:var(--font-display);font-weight:700;color:var(--ocean);border-top:1px solid var(--border);padding-top:12px;margin-top:8px;">
+                    <span>Total</span><span id="totalPrice">₱0</span>
+                  </div>
+                </div>
+                <div style="margin:16px 0;">
+                  <div class="form-label">Promo Code</div>
+                  <div style="display:flex;gap:8px;">
+                    <input type="text" class="form-input" id="promoInput" placeholder="e.g. LAKBAY10" style="flex:1;" />
+                    <button onclick="applyPromo()" class="btn-outline" style="padding:10px 16px;white-space:nowrap;">Apply</button>
+                  </div>
+                  <div id="promoMsg" style="font-size:0.78rem;margin-top:6px;"></div>
+                </div>
+                <button onclick="goToStep2()" class="btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:1rem;">Proceed to Checkout →</button>
+                <a href="search.html" class="btn-ghost" style="width:100%;justify-content:center;margin-top:8px;">+ Add More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: DETAILS -->
+      <div id="viewStep2" style="display:none;max-width:700px;">
+        <div style="background:white;border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:8px;">Traveler Details</h3>
+          <p style="color:var(--text-muted);margin-bottom:28px;">Lead traveler information for your booking confirmation.</p>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" id="firstName" placeholder="Juan" /></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" id="lastName" placeholder="dela Cruz" /></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" id="emailInput" placeholder="juan@email.com" /></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" id="phoneInput" placeholder="+63 9XX XXX XXXX" /></div>
+            <div class="form-group"><label class="form-label">Nationality</label><select class="form-select"><option>Filipino</option><option>Other</option></select></div>
+          </div>
+          <div class="form-group"><label class="form-label">Special Requests</label><textarea class="form-input" rows="3" placeholder="Dietary needs, accessibility, anniversary surprise…" style="resize:vertical;"></textarea></div>
+          <div style="display:flex;gap:12px;margin-top:8px;">
+            <button onclick="goToStep1()" class="btn-outline">← Back</button>
+            <button onclick="goToStep3()" class="btn-primary" style="flex:1;justify-content:center;">Continue to Payment →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: PAYMENT -->
+      <div id="viewStep3" style="display:none;max-width:700px;">
+        <div style="background:white;border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:28px;">Payment</h3>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;">
+            <label class="pay-method active" onclick="selectPay(this)"><input type="radio" name="pay" checked> 💳 Card</label>
+            <label class="pay-method" onclick="selectPay(this)"><input type="radio" name="pay"> 📱 GCash</label>
+            <label class="pay-method" onclick="selectPay(this)"><input type="radio" name="pay"> 🏦 Bank Transfer</label>
+          </div>
+          <div id="cardFields">
+            <div class="form-group"><label class="form-label">Cardholder Name</label><input type="text" class="form-input" placeholder="JUAN DELA CRUZ" /></div>
+            <div class="form-group"><label class="form-label">Card Number</label><input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" /></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Expiry</label><input type="text" class="form-input" placeholder="MM/YY" /></div>
+              <div class="form-group"><label class="form-label">CVV</label><input type="text" class="form-input" placeholder="123" maxlength="3" /></div>
+            </div>
+          </div>
+          <div style="background:var(--ocean-pale);border-radius:var(--radius);padding:16px;font-size:0.82rem;color:var(--ocean);margin:16px 0;">
+            🔒 Your payment is encrypted and secured by 256-bit SSL. We never store card details.
+          </div>
+          <div style="display:flex;gap:12px;">
+            <button onclick="goToStep2()" class="btn-outline">← Back</button>
+            <button onclick="confirmBooking()" class="btn-primary" style="flex:1;justify-content:center;padding:15px;font-size:1rem;">Confirm Booking — <span id="finalTotal">₱0</span> →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: CONFIRMED -->
+      <div id="viewStep4" style="display:none;text-align:center;max-width:600px;margin:0 auto;">
+        <div style="background:white;border-radius:var(--radius-xl);padding:60px 40px;box-shadow:var(--shadow-lg);border:1px solid var(--border);">
+          <div style="width:80px;height:80px;background:var(--tropical-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 24px;">✓</div>
+          <h2 style="font-family:var(--font-display);font-size:2rem;color:var(--tropical);margin-bottom:12px;">Booking Confirmed!</h2>
+          <p style="color:var(--text-muted);margin-bottom:8px;">Your booking reference is:</p>
+          <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--ocean);letter-spacing:0.1em;margin-bottom:24px;" id="bookingRef">LKB-XXXXXX</div>
+          <p style="color:var(--text-mid);margin-bottom:32px;line-height:1.7;">A confirmation email has been sent to your inbox. You can track your booking status using the reference number above.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="tracker.html" class="btn-primary">Track My Booking →</a>
+            <a href="search.html" class="btn-outline">Book Another Trip</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div><div class="footer-tagline">Full-service Philippine travel agency.</div></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="search.html" class="footer-link">Destinations</a><a href="tracker.html" class="footer-link">Track Booking</a></div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links"><div class="footer-link">📞 +63 2 8888 LAKBAY</div><div class="footer-link">📧 hello@lakbay.ph</div></div></div>
+    <div class="footer-col"><h4>Support</h4><div class="footer-links"><a href="contact.html" class="footer-link">Help Center</a><a href="reviews.html" class="footer-link">Reviews</a></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency</span></div>
+</footer>
+
+<style>
+.checkout-step { display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0; }
+.cs-num { width:36px;height:36px;border-radius:50%;border:2px solid var(--border);background:white;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:600;color:var(--text-muted); }
+.cs-label { font-size:0.75rem;font-weight:500;color:var(--text-muted);white-space:nowrap; }
+.checkout-step.active .cs-num { background:var(--ocean);border-color:var(--ocean);color:white; }
+.checkout-step.active .cs-label { color:var(--ocean);font-weight:600; }
+.checkout-step.done .cs-num { background:var(--tropical);border-color:var(--tropical);color:white; }
+.cs-line { flex:1;height:2px;background:var(--border);margin-top:-20px; }
+.pay-method { display:flex;align-items:center;gap:8px;padding:12px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:0.875rem;font-weight:500;transition:all 0.2s; }
+.pay-method input { accent-color:var(--ocean); }
+.pay-method.active { border-color:var(--ocean);background:var(--ocean-pale);color:var(--ocean); }
+@media(max-width:900px){ #viewStep1 > div { grid-template-columns:1fr!important; } }
+</style>
+
+<script>
+let discount = 0;
+
+function renderCart() {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  document.getElementById('cartCount').textContent = cart.length;
+
+  if (cart.length === 0) {
+    document.getElementById('cartItems').innerHTML = '';
+    document.getElementById('emptyCart').style.display = 'block';
+    document.getElementById('summaryPanel').style.display = 'none';
+    return;
+  }
+  document.getElementById('emptyCart').style.display = 'none';
+  document.getElementById('summaryPanel').style.display = 'block';
+
+  document.getElementById('cartItems').innerHTML = cart.map((item, idx) => `
+    <div class="cart-panel" style="margin-bottom:16px;">
+      <div style="padding:20px 24px;display:flex;gap:16px;align-items:flex-start;">
+        <div class="cart-item-img ${item.img}" style="width:80px;height:80px;border-radius:12px;flex-shrink:0;"></div>
+        <div style="flex:1;">
+          <div style="font-weight:600;font-size:1rem;margin-bottom:4px;">${item.name}</div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:8px;">📍 ${item.loc} · ${item.duration}</div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span class="badge badge-blue">${item.tag}</span>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--ocean);">₱${item.price.toLocaleString()}</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">per person</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;justify-content:flex-end;">
+            <label style="font-size:0.78rem;color:var(--text-muted);">Pax:</label>
+            <input type="number" min="1" max="20" value="${item.pax||1}" style="width:56px;padding:4px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:0.875rem;" onchange="updatePax(${idx}, this.value)" />
+          </div>
+          <button onclick="removeItem(${idx})" style="margin-top:8px;background:var(--coral-light);color:var(--coral);border:none;padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:600;cursor:pointer;">Remove</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  updateSummary(cart);
+}
+
+function updatePax(idx, val) {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  cart[idx].pax = parseInt(val) || 1;
+  localStorage.setItem('lakbayCart', JSON.stringify(cart));
+  updateSummary(cart);
+}
+
+function removeItem(idx) {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  cart.splice(idx, 1);
+  localStorage.setItem('lakbayCart', JSON.stringify(cart));
+  renderCart();
+}
+
+function updateSummary(cart) {
+  const sub = cart.reduce((s, i) => s + (i.price * (i.pax||1)), 0);
+  const fee = Math.round(sub * 0.02);
+  const disc = Math.round(sub * discount);
+  const total = sub + fee - disc;
+
+  document.getElementById('subtotal').textContent = '₱' + sub.toLocaleString();
+  document.getElementById('serviceFee').textContent = '₱' + fee.toLocaleString();
+  document.getElementById('discountLine').textContent = '-₱' + disc.toLocaleString();
+  document.getElementById('totalPrice').textContent = '₱' + total.toLocaleString();
+  document.getElementById('finalTotal').textContent = '₱' + total.toLocaleString();
+
+  document.getElementById('summaryLines').innerHTML = cart.map(i => `
+    <div style="display:flex;justify-content:space-between;font-size:0.82rem;color:var(--text-mid);margin-bottom:8px;">
+      <span>${i.name} × ${i.pax||1}</span>
+      <span>₱${(i.price*(i.pax||1)).toLocaleString()}</span>
+    </div>
+  `).join('');
+}
+
+function applyPromo() {
+  const code = document.getElementById('promoInput').value.trim().toUpperCase();
+  const msg = document.getElementById('promoMsg');
+  if (code === 'LAKBAY10') {
+    discount = 0.10;
+    msg.style.color = 'var(--tropical)';
+    msg.textContent = '✓ 10% discount applied!';
+  } else if (code === 'SUMMER20') {
+    discount = 0.20;
+    msg.style.color = 'var(--tropical)';
+    msg.textContent = '✓ 20% summer discount applied!';
+  } else {
+    discount = 0;
+    msg.style.color = 'var(--coral)';
+    msg.textContent = '✗ Invalid promo code.';
+  }
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  updateSummary(cart);
+}
+
+function selectPay(el) {
+  document.querySelectorAll('.pay-method').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function goToStep1() { setStep(1); }
+function goToStep2() {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  if (cart.length === 0) return;
+  setStep(2);
+}
+function goToStep3() { setStep(3); }
+function confirmBooking() {
+  const ref = 'LKB-' + Math.random().toString(36).substring(2,8).toUpperCase();
+  document.getElementById('bookingRef').textContent = ref;
+  // Save booking to localStorage for tracker
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  const bookings = JSON.parse(localStorage.getItem('lakbayBookings') || '[]');
+  const sub = cart.reduce((s, i) => s + (i.price * (i.pax||1)), 0);
+  bookings.push({ ref, items: cart, total: sub, date: new Date().toISOString(), status: 'confirmed' });
+  localStorage.setItem('lakbayBookings', JSON.stringify(bookings));
+  localStorage.setItem('lakbayCart', '[]');
+  setStep(4);
+}
+
+function setStep(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('viewStep'+i).style.display = i===n ? 'block' : 'none';
+    const el = document.getElementById('step'+i);
+    if (el) {
+      el.classList.toggle('active', i===n);
+      el.classList.toggle('done', i<n);
+    }
+  });
+  if (n>1) document.querySelector('.checkout-step:first-child').classList.add('done');
+}
+
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+
+renderCart();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>

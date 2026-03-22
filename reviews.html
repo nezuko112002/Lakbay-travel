@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews & Feedback — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;+display=swap" rel="stylesheet" />  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="reviews.html" class="nav-link active">Reviews</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner" data-aos="fade-up">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Reviews</span></nav>
+      <span class="page-hero-label">Traveler Stories</span>
+      <h1>What Our Guests Say About<br/><em style="font-style:italic;color:var(--gold);">Lakbay</em></h1>
+      <p>Real reviews from real Filipino travelers. Over 2,400 happy guests and counting.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:56px;">
+    <div class="section-inner">
+
+      <!-- RATING SUMMARY -->
+      <div style="background:white;border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-md);border:1px solid var(--border);margin-bottom:48px;" data-aos="fade-up" data-aos-delay="200">
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:center;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-display);font-size:5rem;font-weight:700;color:var(--ocean);line-height:1;">4.9</div>
+            <div style="font-size:1.5rem;color:var(--gold);letter-spacing:4px;margin-bottom:8px;">★★★★★</div>
+            <div style="font-size:0.82rem;color:var(--text-muted);">Based on 2,412 reviews</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="rating-bar"><span style="width:40px;font-size:0.82rem;color:var(--text-muted);">5 ★</span><div class="bar-track"><div class="bar-fill" style="width:87%;background:var(--gold);"></div></div><span style="font-size:0.82rem;color:var(--text-muted);width:40px;text-align:right;">87%</span></div>
+            <div class="rating-bar"><span style="width:40px;font-size:0.82rem;color:var(--text-muted);">4 ★</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--ocean);"></div></div><span style="font-size:0.82rem;color:var(--text-muted);width:40px;text-align:right;">10%</span></div>
+            <div class="rating-bar"><span style="width:40px;font-size:0.82rem;color:var(--text-muted);">3 ★</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:var(--text-muted);"></div></div><span style="font-size:0.82rem;color:var(--text-muted);width:40px;text-align:right;">2%</span></div>
+            <div class="rating-bar"><span style="width:40px;font-size:0.82rem;color:var(--text-muted);">2 ★</span><div class="bar-track"><div class="bar-fill" style="width:1%;background:var(--text-muted);"></div></div><span style="font-size:0.82rem;color:var(--text-muted);width:40px;text-align:right;">1%</span></div>
+            <div class="rating-bar"><span style="width:40px;font-size:0.82rem;color:var(--text-muted);">1 ★</span><div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--coral);"></div></div><span style="font-size:0.82rem;color:var(--text-muted);width:40px;text-align:right;">0%</span></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px;border-top:1px solid var(--border);padding-top:32px;">
+          <div style="text-align:center;"><div style="font-size:1.5rem;margin-bottom:4px;">🏝</div><div style="font-weight:600;font-size:0.9rem;">Tour Quality</div><div style="color:var(--gold);font-size:0.9rem;">★ 4.9</div></div>
+          <div style="text-align:center;"><div style="font-size:1.5rem;margin-bottom:4px;">💰</div><div style="font-weight:600;font-size:0.9rem;">Value for Money</div><div style="color:var(--gold);font-size:0.9rem;">★ 4.8</div></div>
+          <div style="text-align:center;"><div style="font-size:1.5rem;margin-bottom:4px;">📞</div><div style="font-weight:600;font-size:0.9rem;">Customer Service</div><div style="color:var(--gold);font-size:0.9rem;">★ 4.9</div></div>
+          <div style="text-align:center;"><div style="font-size:1.5rem;margin-bottom:4px;">🔧</div><div style="font-weight:600;font-size:0.9rem;">Booking Process</div><div style="color:var(--gold);font-size:0.9rem;">★ 4.8</div></div>
+        </div>
+      </div>
+
+      <!-- FILTERS -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
+        <div class="cat-pills" style="margin:0;">
+          <div class="cat-pill active" onclick="setReviewFilter(this,'all')">All Reviews</div>
+          <div class="cat-pill" onclick="setReviewFilter(this,'5')">★★★★★ 5 Stars</div>
+          <div class="cat-pill" onclick="setReviewFilter(this,'4')">★★★★ 4 Stars</div>
+          <div class="cat-pill" onclick="setReviewFilter(this,'package')">📦 Packages</div>
+          <div class="cat-pill" onclick="setReviewFilter(this,'tour')">🏝 Tours</div>
+        </div>
+        <select class="form-select" style="width:auto;" onchange="sortReviews(this.value)">
+          <option value="recent">Most Recent</option>
+          <option value="helpful">Most Helpful</option>
+          <option value="high">Highest Rated</option>
+        </select>
+      </div>
+
+      <!-- REVIEWS GRID -->
+      <div class="reviews-grid" id="reviewsGrid"></div>
+
+      <!-- LOAD MORE -->
+      <div style="text-align:center;margin-top:40px;">
+        <button onclick="loadMore()" class="btn-outline" id="loadMoreBtn">Load More Reviews</button>
+      </div>
+
+      <!-- WRITE REVIEW -->
+      <div style="background:var(--ocean-pale);border-radius:var(--radius-xl);padding:48px;margin-top:80px;border:1px solid var(--border);" id="writeReview">
+        <div style="text-align:center;margin-bottom:36px;">
+          <span class="section-label">Share Your Experience</span>
+          <h2 class="section-title" style="margin-bottom:8px;">Write a Review</h2>
+          <p style="color:var(--text-muted);">Help other travelers by sharing your Lakbay experience.</p>
+        </div>
+        <div style="max-width:640px;margin:0 auto;" id="reviewFormWrap">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" id="rname" placeholder="Maria Reyes" /></div>
+            <div class="form-group"><label class="form-label">Location</label><input type="text" class="form-input" id="rloc" placeholder="Quezon City" /></div>
+          </div>
+          <div class="form-group"><label class="form-label">Booking Reference (optional)</label><input type="text" class="form-input" id="rref" placeholder="LKB-XXXXXX" /></div>
+          <div class="form-group"><label class="form-label">Destination / Trip</label><input type="text" class="form-input" id="rtrip" placeholder="El Nido Family Package" /></div>
+          <div class="form-group">
+            <label class="form-label">Your Rating</label>
+            <div style="display:flex;gap:8px;margin-top:4px;" id="starSelect">
+              <button class="star-btn" onclick="setRating(1)" data-star="1">★</button>
+              <button class="star-btn" onclick="setRating(2)" data-star="2">★</button>
+              <button class="star-btn" onclick="setRating(3)" data-star="3">★</button>
+              <button class="star-btn" onclick="setRating(4)" data-star="4">★</button>
+              <button class="star-btn" onclick="setRating(5)" data-star="5">★</button>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Your Review</label><textarea class="form-input" id="rtext" rows="4" placeholder="Share your experience — what did you love most? Any tips for future travelers?" style="resize:vertical;"></textarea></div>
+          <button onclick="submitReview()" class="btn-primary" style="width:100%;justify-content:center;padding:15px;">Submit Review ★</button>
+        </div>
+        <div id="reviewSuccess" style="display:none;text-align:center;padding:32px;">
+          <div style="font-size:3rem;margin-bottom:12px;">🎉</div>
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--tropical);margin-bottom:8px;">Thank You!</h3>
+          <p style="color:var(--text-muted);">Your review has been submitted and will appear after verification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to Create Your Own Story?</h2>
+      <p>Join thousands of happy Lakbay travelers. Book your Philippine adventure today.</p>
+      <div class="cta-btns">
+        <a href="search.html" class="btn-white">Browse Packages 🏝</a>
+        <a href="contact.html" class="btn-woutline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div><div class="footer-tagline">Full-service Philippine travel agency. DOT Accredited.</div></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="search.html" class="footer-link">Destinations</a><a href="cart.html" class="footer-link">Basket</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a href="about.html#team" class="footer-link">Team</a><a href="suppliers.html" class="footer-link">Partners</a></div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links"><div class="footer-link">📞 +63 2 8888 LAKBAY</div><div class="footer-link">📧 hello@lakbay.ph</div></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency</span></div>
+</footer>
+
+<style>
+.rating-bar { display:flex;align-items:center;gap:12px; }
+.bar-track { flex:1;height:10px;background:var(--border);border-radius:5px;overflow:hidden; }
+.bar-fill { height:100%;border-radius:5px;transition:width 0.8s ease; }
+.star-btn { font-size:2rem;color:var(--border);cursor:pointer;transition:color 0.15s;background:none;border:none; }
+.star-btn.active { color:var(--gold); }
+</style>
+
+<script>
+const allReviews = [
+  { name:'Maria Reyes', loc:'Quezon City', avatar:'MR', color:'var(--ocean)', stars:5, text:'Lakbay made our family Palawan trip completely seamless. The basket checkout where I could combine flights, resort, and island hopping tours in one step was genius. Will book again for sure!', trip:'El Nido Family Package', date:'March 2025', type:'package' },
+  { name:'Juan dela Cruz', loc:'Davao City', avatar:'JD', color:'var(--tropical)', stars:5, text:'The real-time booking tracker was incredible — I could see every update live. The team is responsive and genuinely passionate about showcasing the Philippines.', trip:'Siargao Surf Weekend', date:'February 2025', type:'tour' },
+  { name:'Ana Cunanan', loc:'Cebu City', avatar:'AC', color:'var(--coral)', stars:5, text:'Best price I found anywhere for our Boracay honeymoon. They added a complimentary sunset cruise — that is Filipino hospitality!', trip:'Boracay Honeymoon Package', date:'January 2025', type:'package' },
+  { name:'Carlo Santos', loc:'Makati', avatar:'CS', color:'#6b4aaa', stars:5, text:'Batanes in 5 days — I was worried it was too short but Lakbay crafted the perfect itinerary. Ivan Tours they partnered us with was outstanding.', trip:'Batanes 5D4N Exclusive', date:'March 2025', type:'tour' },
+  { name:'Pia Villanueva', loc:'Marikina', avatar:'PV', color:'var(--gold)', stars:4, text:'The Bohol package was well-organized. Only minor issue was the Chocolate Hills van was a bit cramped. Overall very happy and would recommend!', trip:'Bohol Heritage Tour', date:'February 2025', type:'tour' },
+  { name:'Ramon Espiritu', loc:'Iloilo', avatar:'RE', color:'#1a6ba0', stars:5, text:'Booked a group of 15 for a Coron diving trip. Lakbay handled everything — flights from Manila, speedboat transfers, and hotel. Flawless execution.', trip:'Coron Group Dive Package', date:'January 2025', type:'package' },
+  { name:'Tanya Mercado', loc:'BGC, Taguig', avatar:'TM', color:'#8b2252', stars:5, text:'Solo trip to Siargao booked through Lakbay. They connected me with other solo travelers — ended up with the best group! The cloud 9 surf lesson was unforgettable.', trip:'Siargao Solo Adventure', date:'December 2024', type:'tour' },
+  { name:'Ken Aquino', loc:'Pasig City', avatar:'KA', color:'var(--ocean-deep)', stars:5, text:'I\'ve booked with 3 other agencies but Lakbay is a different level. Personal touch, transparent pricing, no hidden charges. This is now my go-to agency.', trip:'El Nido + Coron Island Combo', date:'December 2024', type:'package' },
+  { name:'Luz Bautista', loc:'Antipolo', avatar:'LB', color:'#c87830', stars:4, text:'Great Vigan heritage tour. The local guide was amazing and very knowledgeable. Would have preferred one more day but overall a lovely experience.', trip:'Vigan & Ilocos Heritage Tour', date:'November 2024', type:'tour' },
+];
+
+let shownCount = 6;
+let activeFilter = 'all';
+
+function setReviewFilter(el, filter) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  activeFilter = filter;
+  shownCount = 6;
+  renderReviews();
+}
+
+function sortReviews(val) { renderReviews(); }
+
+function getFiltered() {
+  return allReviews.filter(r => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === '5') return r.stars === 5;
+    if (activeFilter === '4') return r.stars === 4;
+    return r.type === activeFilter;
+  });
+}
+
+function renderReviews() {
+  const filtered = getFiltered();
+  const shown = filtered.slice(0, shownCount);
+  document.getElementById('reviewsGrid').innerHTML = shown.map(r => `
+    <div class="review-card">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:${r.color};">${r.avatar}</div>
+        <div>
+          <div class="reviewer-name">${r.name}</div>
+          <div class="reviewer-loc">📍 ${r.loc} · ${r.date}</div>
+        </div>
+      </div>
+      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div class="review-text">"${r.text}"</div>
+      <div class="review-trip">✈ ${r.trip}</div>
+    </div>
+  `).join('');
+  document.getElementById('loadMoreBtn').style.display = shownCount >= filtered.length ? 'none' : 'inline-flex';
+}
+
+function loadMore() { shownCount += 3; renderReviews(); }
+
+let selectedRating = 0;
+function setRating(n) {
+  selectedRating = n;
+  document.querySelectorAll('.star-btn').forEach((b, i) => b.classList.toggle('active', i < n));
+}
+
+function submitReview() {
+  const name = document.getElementById('rname').value.trim();
+  const text = document.getElementById('rtext').value.trim();
+  if (!name || !text || selectedRating === 0) {
+    alert('Please fill in your name, a rating, and your review.');
+    return;
+  }
+  const newReview = {
+    name, loc: document.getElementById('rloc').value || 'Philippines',
+    avatar: name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase(),
+    color: 'var(--ocean)',
+    stars: selectedRating,
+    text,
+    trip: document.getElementById('rtrip').value || 'Lakbay Trip',
+    date: 'Just now',
+    type: 'package'
+  };
+  allReviews.unshift(newReview);
+  document.getElementById('reviewFormWrap').style.display = 'none';
+  document.getElementById('reviewSuccess').style.display = 'block';
+  renderReviews();
+}
+
+function updateCartCount() { const c=JSON.parse(localStorage.getItem('lakbayCart')||'[]'); document.getElementById('cartCount').textContent=c.length; }
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+updateCartCount();
+renderReviews();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>

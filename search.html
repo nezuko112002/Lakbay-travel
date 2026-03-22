@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Destinations — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link active">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link active">Destinations</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="cart.html" class="btn-primary" style="text-align:center">🧺 Basket</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Destinations</span></nav>
+      <span class="page-hero-label">Explore the Philippines</span>
+      <h1>Find Your Perfect Trip</h1>
+      <p>Search flights, tours, hotels, and island packages across 120+ destinations nationwide.</p>
+      <div style="margin-top:28px;">
+        <div class="search-bar-wrap" style="max-width:520px;">
+          <span style="padding:0 12px 0 18px;font-size:1.1rem;">🔍</span>
+          <input class="search-bar-input" type="text" id="mainSearch" placeholder="Search destinations, tours, hotels…" oninput="filterResults()" />
+          <button class="search-bar-btn" onclick="filterResults()">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:56px;">
+    <div class="section-inner">
+      <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+
+        <!-- SIDEBAR FILTERS -->
+        <aside style="width:260px;flex-shrink:0;">
+          <div style="background:white;border-radius:var(--radius-lg);border:1px solid var(--border);padding:24px;position:sticky;top:90px;">
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:20px;">Filters</h3>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label">Category</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <label class="filter-check"><input type="checkbox" checked onchange="filterResults()"> All</label>
+                <label class="filter-check"><input type="checkbox" onchange="filterResults()" data-cat="flight"> ✈ Flights</label>
+                <label class="filter-check"><input type="checkbox" onchange="filterResults()" data-cat="tour"> 🏝 Tours</label>
+                <label class="filter-check"><input type="checkbox" onchange="filterResults()" data-cat="hotel"> 🏨 Hotels</label>
+                <label class="filter-check"><input type="checkbox" onchange="filterResults()" data-cat="package"> 📦 Packages</label>
+              </div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label">Budget per Person</div>
+              <input type="range" min="1000" max="30000" value="30000" id="budgetRange" oninput="updateBudget()" style="width:100%" />
+              <div style="font-size:0.85rem;color:var(--text-mid);margin-top:6px;">Up to ₱<span id="budgetVal">30,000</span></div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label">Region</div>
+              <select class="form-select" onchange="filterResults()" id="regionFilter">
+                <option value="">All Regions</option>
+                <option value="luzon">Luzon</option>
+                <option value="visayas">Visayas</option>
+                <option value="mindanao">Mindanao</option>
+                <option value="mimaropa">Mimaropa (Palawan)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label">Duration</div>
+              <select class="form-select" id="durationFilter" onchange="filterResults()">
+                <option value="">Any Duration</option>
+                <option value="day">Day Trip</option>
+                <option value="weekend">Weekend (2-3 days)</option>
+                <option value="week">Week (4-7 days)</option>
+                <option value="extended">Extended (7+ days)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <div class="form-label">Sort By</div>
+              <select class="form-select" id="sortFilter" onchange="filterResults()">
+                <option value="popular">Most Popular</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+
+            <button onclick="clearFilters()" class="btn-outline" style="width:100%;justify-content:center;">Clear Filters</button>
+          </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+            <div style="font-size:0.9rem;color:var(--text-muted);">Showing <strong id="resultCount" style="color:var(--text-dark);">9</strong> results</div>
+            <div class="cat-pills" style="margin:0;">
+              <div class="cat-pill active" onclick="setCat(this,'all')"><span class="cat-icon">🗺</span> All</div>
+              <div class="cat-pill" onclick="setCat(this,'flights')"><span class="cat-icon">✈</span> Flights</div>
+              <div class="cat-pill" onclick="setCat(this,'tours')"><span class="cat-icon">🏝</span> Tours</div>
+              <div class="cat-pill" onclick="setCat(this,'hotels')"><span class="cat-icon">🏨</span> Hotels</div>
+              <div class="cat-pill" onclick="setCat(this,'packages')"><span class="cat-icon">📦</span> Packages</div>
+            </div>
+          </div>
+
+          <div class="dest-grid" id="resultsGrid">
+            <!-- Cards injected by JS -->
+          </div>
+
+          <div id="noResults" style="display:none;text-align:center;padding:60px 20px;">
+            <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
+            <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px;">No results found</h3>
+            <p style="color:var(--text-muted);">Try adjusting your search or filters.</p>
+            <button onclick="clearFilters()" class="btn-primary" style="margin-top:16px;">Clear Filters</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div>
+      <div class="footer-tagline">Your full-service Philippine travel agency. DOT Accredited. Filipino-owned.</div>
+    </div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links">
+      <a href="index.html" class="footer-link">Home</a>
+      <a href="search.html" class="footer-link">Destinations</a>
+      <a href="cart.html" class="footer-link">Booking Basket</a>
+      <a href="tracker.html" class="footer-link">Track Booking</a>
+    </div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links">
+      <div class="footer-link">📞 +63 2 8888 LAKBAY</div>
+      <div class="footer-link">📧 hello@lakbay.ph</div>
+      <div class="footer-link">📍 Makati City, Manila</div>
+    </div></div>
+    <div class="footer-col"><h4>Support</h4><div class="footer-links">
+      <a href="tracker.html" class="footer-link">Track Booking</a>
+      <a href="reviews.html" class="footer-link">Reviews</a>
+      <a href="contact.html" class="footer-link">Help Center</a>
+    </div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<style>
+.filter-check { display:flex;align-items:center;gap:8px;font-size:0.875rem;color:var(--text-mid);cursor:pointer; }
+.filter-check input { accent-color:var(--ocean); }
+@media(max-width:768px){ aside{width:100%!important;} }
+</style>
+
+<script>
+const destinations = [
+  { id:1, name:'El Nido, Palawan', loc:'Palawan, Mimaropa', cat:'package', region:'mimaropa', price:8500, rating:4.9, reviews:312, duration:'4D3N', tag:'✈+🏝+🏨 Package', badge:'⭐ Top Pick', img:'img-palawan', desc:'Crystal lagoons, limestone cliffs, and pristine beaches. UNESCO-listed wonder.' },
+  { id:2, name:'Siargao Island', loc:'Surigao del Norte, Caraga', cat:'tour', region:'mindanao', price:6200, rating:4.8, reviews:198, duration:'3D2N', tag:'🏄 Surf + Stay', badge:'', img:'img-siargao', desc:'The surfing capital of the Philippines. Cloud 9 waves and lagoon island-hopping.' },
+  { id:3, name:'Boracay White Beach', loc:'Aklan, Western Visayas', cat:'package', region:'visayas', price:7800, rating:4.7, reviews:445, duration:'4D3N', tag:'🏖 Beach Resort', badge:'', img:'img-boracay', desc:'World-famous powdery white sand and turquoise waters on a 4km stretch.' },
+  { id:4, name:'Banaue Rice Terraces', loc:'Ifugao, Cordillera, Luzon', cat:'tour', region:'luzon', price:4200, rating:4.8, reviews:167, duration:'2D1N', tag:'🌾 Cultural Tour', badge:'🏛 Heritage', img:'img-banaue', desc:'8th Wonder of the World. 2,000-year-old Ifugao rice terraces carved into mountains.' },
+  { id:5, name:'Chocolate Hills, Bohol', loc:'Bohol, Central Visayas', cat:'tour', region:'visayas', price:3800, rating:4.6, reviews:289, duration:'Day Trip', tag:'🌄 Nature Tour', badge:'', img:'img-chocolate', desc:'1,268 perfectly cone-shaped hills turning chocolate-brown in dry season.' },
+  { id:6, name:'Vigan Heritage City', loc:'Ilocos Sur, Ilocos', cat:'tour', region:'luzon', price:3500, rating:4.7, reviews:142, duration:'2D1N', tag:'🎎 Heritage', badge:'🏛 UNESCO', img:'img-vigan', desc:'Best-preserved Spanish colonial town in Asia. Cobblestone streets and heritage mansions.' },
+  { id:7, name:'Cebu City + Oslob', loc:'Cebu, Central Visayas', cat:'package', region:'visayas', price:5500, rating:4.7, reviews:380, duration:'3D2N', tag:'🐳 Whale + City', badge:'', img:'img-cebu', desc:'Swim with whale sharks in Oslob, explore heritage churches and beach resorts.' },
+  { id:8, name:'Batanes Islands', loc:'Batanes, Cagayan Valley', cat:'tour', region:'luzon', price:12000, rating:4.9, reviews:88, duration:'5D4N', tag:'🏔 Off the Beaten', badge:'💎 Exclusive', img:'img-batanes', desc:'The northernmost islands. Rolling hills, stone houses, and dramatic Pacific vistas.' },
+  { id:9, name:'Coron, Palawan', loc:'Palawan, Mimaropa', cat:'package', region:'mimaropa', price:9200, rating:4.9, reviews:267, duration:'4D3N', tag:'🤿 Dive + Island', badge:'🌊 Best Dive', img:'img-coron', desc:"World-class wreck diving, twin lagoons, and Kayangan Lake — Coron is Palawan's crown jewel." },
+];
+
+let activeCat = 'all';
+function setCat(el, cat) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  activeCat = cat;
+  filterResults();
+}
+
+function filterResults() {
+  const query = document.getElementById('mainSearch').value.toLowerCase();
+  const budget = parseInt(document.getElementById('budgetRange').value);
+  const region = document.getElementById('regionFilter').value;
+  const sort = document.getElementById('sortFilter').value;
+
+  let filtered = destinations.filter(d => {
+    const matchQuery = d.name.toLowerCase().includes(query) || d.loc.toLowerCase().includes(query) || d.desc.toLowerCase().includes(query);
+    const matchBudget = d.price <= budget;
+    const matchRegion = !region || d.region === region;
+    const matchCat = activeCat === 'all' || d.cat === activeCat || (activeCat === 'packages' && d.cat === 'package') || (activeCat === 'tours' && d.cat === 'tour');
+    return matchQuery && matchBudget && matchRegion && matchCat;
+  });
+
+  if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
+  else if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
+  else if (sort === 'rating') filtered.sort((a,b) => b.rating - a.rating);
+
+  document.getElementById('resultCount').textContent = filtered.length;
+  const grid = document.getElementById('resultsGrid');
+  const noRes = document.getElementById('noResults');
+
+  if (filtered.length === 0) { grid.innerHTML=''; noRes.style.display='block'; return; }
+  noRes.style.display='none';
+
+  grid.innerHTML = filtered.map(d => `
+    <div class="dest-card">
+      <div class="dest-img">
+        <div class="dest-img-bg ${d.img}" style="height:100%;"></div>
+        <div class="dest-tag">${d.tag}</div>
+        ${d.badge ? `<div class="dest-badge">${d.badge}</div>` : ''}
+      </div>
+      <div class="dest-body">
+        <div class="dest-name">${d.name}</div>
+        <div class="dest-loc">📍 ${d.loc}</div>
+        <div class="dest-desc">${d.desc}</div>
+        <div class="dest-footer">
+          <div class="dest-price">
+            <div class="dest-price-num">₱${d.price.toLocaleString()}</div>
+            <div class="dest-price-label">per person / ${d.duration}</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="dest-rating"><span class="stars">★</span> ${d.rating} (${d.reviews})</div>
+            <button onclick="addToCart(${d.id})" class="btn-primary" style="padding:8px 16px;font-size:0.78rem;margin-top:8px;">+ Basket</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateBudget() {
+  const val = parseInt(document.getElementById('budgetRange').value);
+  document.getElementById('budgetVal').textContent = val.toLocaleString();
+  filterResults();
+}
+
+function clearFilters() {
+  document.getElementById('mainSearch').value = '';
+  document.getElementById('budgetRange').value = 30000;
+  document.getElementById('budgetVal').textContent = '30,000';
+  document.getElementById('regionFilter').value = '';
+  document.getElementById('durationFilter').value = '';
+  document.getElementById('sortFilter').value = 'popular';
+  activeCat = 'all';
+  document.querySelectorAll('.cat-pill').forEach((p,i) => p.classList.toggle('active', i===0));
+  filterResults();
+}
+
+function addToCart(id) {
+  const item = destinations.find(d => d.id === id);
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  if (!cart.find(c => c.id === id)) {
+    cart.push(item);
+    localStorage.setItem('lakbayCart', JSON.stringify(cart));
+  }
+  document.getElementById('cartCount').textContent = cart.length;
+  const btn = event.target;
+  btn.textContent = '✓ Added!';
+  btn.style.background = 'var(--tropical)';
+  setTimeout(() => { btn.textContent = '+ Basket'; btn.style.background = ''; }, 2000);
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  document.getElementById('cartCount').textContent = cart.length;
+}
+
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+
+filterResults();
+updateCartCount();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>

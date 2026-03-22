@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakbay — Full Travel Agency, Philippines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">L</div>
+    Lakbay
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">
+      🧺 Basket <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link active">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="suppliers.html" class="nav-link">Partners</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="tracker.html" class="btn-outline" style="text-align:center;margin-top:8px">Track Booking</a>
+  <a href="search.html" class="btn-primary" style="text-align:center">Book Now →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><div class="hero-pattern"></div></div>
+  <div class="hero-waves"></div>
+  <div class="hero-content">
+    <div class="hero-left fade-up">
+      <div class="hero-badge">✦ 7,641 Islands. Infinite Stories.</div>
+      <h1 class="hero-title">Discover the <em>Soul</em> of the Philippines</h1>
+      <p class="hero-sub">Your complete travel agency for flights, island-hopping tours, and handpicked hotels — from Batanes to Tawi-Tawi.</p>
+      <div class="hero-actions">
+        <a href="search.html" class="btn-primary" style="background:var(--gold);border-color:var(--gold);color:#1a1000;font-size:1rem;padding:15px 32px;">Explore Packages →</a>
+        <a href="tracker.html" class="btn-woutline">Track My Booking</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="500">
+          <div class="hero-stat-num">2,400+</div>
+          <div class="hero-stat-label">Happy Travelers</div>
+        </div>
+        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="600">
+          <div class="hero-stat-num">120+</div>
+          <div class="hero-stat-label">Destinations</div>
+        </div>
+        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="700">
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+    <!-- Quick Search Card -->
+    <div class="hero-search-card fade-up delay-2" data-aos="fade-up" data-aos-delay="800">
+      <h3>Find Your Journey</h3>
+      <div class="search-tabs">
+        <div class="search-tab active" onclick="switchTab(this,'flights')">✈ Flights</div>
+        <div class="search-tab" onclick="switchTab(this,'tours')">🏝 Tours</div>
+        <div class="search-tab" onclick="switchTab(this,'hotels')">🏨 Hotels</div>
+      </div>
+      <div class="search-form" id="searchForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">From</label>
+            <div class="glass-dropdown" id="fromDropdown">
+              <div class="glass-dropdown-selected" onclick="toggleGlassDropdown('fromDropdown')">
+                <span id="selectedFrom">Manila (MNL)</span>
+                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </div>
+              <div class="glass-dropdown-menu" id="fromMenu">
+                <div class="glass-dropdown-option" onclick="selectFrom('Manila (MNL)', 'fromDropdown')">
+                  <span class="option-main">Manila (MNL)</span>
+                  <span class="option-sub">Capital city</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectFrom('Cebu (CEB)', 'fromDropdown')">
+                  <span class="option-main">Cebu (CEB)</span>
+                  <span class="option-sub">Queen City</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectFrom('Davao (DVO)', 'fromDropdown')">
+                  <span class="option-main">Davao (DVO)</span>
+                  <span class="option-sub">Southern hub</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectFrom('Clark (CRK)', 'fromDropdown')">
+                  <span class="option-main">Clark (CRK)</span>
+                  <span class="option-sub">Pampanga</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">To</label>
+            <div class="glass-dropdown" id="toDropdown">
+              <div class="glass-dropdown-selected" onclick="toggleGlassDropdown('toDropdown')">
+                <span id="selectedTo">Palawan (PPS)</span>
+                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </div>
+              <div class="glass-dropdown-menu" id="toMenu">
+                <div class="glass-dropdown-option" onclick="selectTo('Palawan (PPS)', 'toDropdown')">
+                  <span class="option-main">Palawan (PPS)</span>
+                  <span class="option-sub">Last frontier</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectTo('Boracay (MPH)', 'toDropdown')">
+                  <span class="option-main">Boracay (MPH)</span>
+                  <span class="option-sub">White beach</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectTo('Siargao (IAO)', 'toDropdown')">
+                  <span class="option-main">Siargao (IAO)</span>
+                  <span class="option-sub">Surf capital</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectTo('Batanes (BSO)', 'toDropdown')">
+                  <span class="option-main">Batanes (BSO)</span>
+                  <span class="option-sub">Northernmost</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectTo('Coron (USU)', 'toDropdown')">
+                  <span class="option-main">Coron (USU)</span>
+                  <span class="option-sub">Diving paradise</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Departure</label>
+            <input type="text" id="departure-date" class="form-input date-input" placeholder="Select departure date" readonly />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Return</label>
+            <input type="text" id="return-date" class="form-input date-input" placeholder="Select return date" readonly />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Passengers</label>
+            <div class="glass-dropdown" id="passengersDropdown">
+              <div class="glass-dropdown-selected" onclick="toggleGlassDropdown('passengersDropdown')">
+                <span id="selectedPassengers">1 Adult</span>
+                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </div>
+              <div class="glass-dropdown-menu" id="passengersMenu">
+                <div class="glass-dropdown-option" onclick="selectPassenger('1 Adult', 'passengersDropdown')">
+                  <span class="option-main">1 Adult</span>
+                  <span class="option-sub">Solo traveler</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectPassenger('2 Adults', 'passengersDropdown')">
+                  <span class="option-main">2 Adults</span>
+                  <span class="option-sub">Couple</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectPassenger('2 Adults, 1 Child', 'passengersDropdown')">
+                  <span class="option-main">2 Adults, 1 Child</span>
+                  <span class="option-sub">Small family</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectPassenger('Group (5+)', 'passengersDropdown')">
+                  <span class="option-main">Group (5+)</span>
+                  <span class="option-sub">Large group</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Class</label>
+            <div class="glass-dropdown" id="classDropdown">
+              <div class="glass-dropdown-selected" onclick="toggleGlassDropdown('classDropdown')">
+                <span id="selectedClass">Economy</span>
+                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </div>
+              <div class="glass-dropdown-menu" id="classMenu">
+                <div class="glass-dropdown-option" onclick="selectClass('Economy', 'classDropdown')">
+                  <span class="option-main">Economy</span>
+                  <span class="option-sub">Best value</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectClass('Business', 'classDropdown')">
+                  <span class="option-main">Business</span>
+                  <span class="option-sub">Extra comfort</span>
+                </div>
+                <div class="glass-dropdown-option" onclick="selectClass('First Class', 'classDropdown')">
+                  <span class="option-main">First Class</span>
+                  <span class="option-sub">Ultimate luxury</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <button class="btn-primary search-btn" style="width:100%;justify-content:center;margin-top:24px;">🔍 Search Experiences</button>
+          </div>
+        </div>
+        <a href="search.html" class="btn-primary" style="width:100%;justify-content:center;margin-top:8px;padding:15px;">Search Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" style="background:white;padding-top:80px;">
+  <div class="section-inner">
+    <div class="section-header center" data-aos="fade-up">
+      <span class="section-label">Browse by Category</span>
+      <h2 class="section-title">What Are You Looking For?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;max-width:900px;margin:0 auto;">
+      <a href="search.html?cat=flights" class="cat-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="cat-card-icon" style="background:var(--ocean-pale);">✈️</div>
+        <div class="cat-card-label">Flights</div>
+        <div class="cat-card-sub">Domestic & Int'l</div>
+      </a>
+      <a href="search.html?cat=island" class="cat-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="cat-card-icon" style="background:#e8f5ec;">🏝️</div>
+        <div class="cat-card-label">Island Hopping</div>
+        <div class="cat-card-sub">7,641 islands</div>
+      </a>
+      <a href="search.html?cat=hotels" class="cat-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="cat-card-icon" style="background:var(--gold-light);">🏨</div>
+        <div class="cat-card-label">Hotels</div>
+        <div class="cat-card-sub">Best-rated stays</div>
+      </a>
+      <a href="search.html?cat=culture" class="cat-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="cat-card-icon" style="background:var(--coral-light);">🎎</div>
+        <div class="cat-card-label">Cultural Tours</div>
+        <div class="cat-card-sub">Heritage & arts</div>
+      </a>
+      <a href="search.html?cat=adventure" class="cat-card" data-aos="zoom-in" data-aos-delay="500">
+        <div class="cat-card-icon" style="background:#eef5e8;">🧗</div>
+        <div class="cat-card-label">Adventure</div>
+        <div class="cat-card-sub">Hike & dive</div>
+      </a>
+      <a href="search.html?cat=package" class="cat-card" data-aos="zoom-in" data-aos-delay="600">
+        <div class="cat-card-icon" style="background:#f0f0ff;">📦</div>
+        <div class="cat-card-label">All-in Packages</div>
+        <div class="cat-card-sub">Best value</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED DESTINATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;" data-aos="fade-up">
+      <div>
+        <span class="section-label">Top Picks</span>
+        <h2 class="section-title" style="margin-bottom:0">Featured Destinations</h2>
+      </div>
+      <a href="search.html" class="btn-outline">View All →</a>
+    </div>
+    <div class="dest-grid">
+
+      <div class="dest-card">
+        <div class="dest-img">
+          <div class="dest-img-bg img-palawan" style="height:100%"></div>
+          <div class="dest-tag">✈ + 🏝 + 🏨</div>
+          <div class="dest-badge">⭐ Top Pick</div>
+        </div>
+        <div class="dest-body">
+          <div class="dest-name">El Nido, Palawan</div>
+          <div class="dest-loc">📍 Palawan, Mimaropa</div>
+          <div class="dest-desc">Crystal lagoons, limestone cliffs, and the world's most pristine beaches. UNESCO-listed natural wonder.</div>
+          <div class="dest-footer">
+            <div class="dest-price">
+              <div class="dest-price-num">₱8,500</div>
+              <div class="dest-price-label">per person / 4D3N</div>
+            </div>
+            <div>
+              <div class="dest-rating"><span class="stars">★★★★★</span> 4.9</div>
+              <a href="search.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem;margin-top:8px;">Add to Basket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-img">
+          <div class="dest-img-bg img-siargao" style="height:100%"></div>
+          <div class="dest-tag">🏄 Surf + Stay</div>
+          <div class="dest-badge" style="background:var(--tropical);">🌿 Eco</div>
+        </div>
+        <div class="dest-body">
+          <div class="dest-name">Siargao Island</div>
+          <div class="dest-loc">📍 Surigao del Norte, Caraga</div>
+          <div class="dest-desc">The surfing capital of the Philippines. Cloud 9 waves, lagoon tours, and laid-back island vibes await.</div>
+          <div class="dest-footer">
+            <div class="dest-price">
+              <div class="dest-price-num">₱6,200</div>
+              <div class="dest-price-label">per person / 3D2N</div>
+            </div>
+            <div>
+              <div class="dest-rating"><span class="stars">★★★★★</span> 4.8</div>
+              <a href="search.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem;margin-top:8px;">Add to Basket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-img">
+          <div class="dest-img-bg img-boracay" style="height:100%"></div>
+          <div class="dest-tag">🏖 Beach Resort</div>
+        </div>
+        <div class="dest-body">
+          <div class="dest-name">Boracay White Beach</div>
+          <div class="dest-loc">📍 Aklan, Western Visayas</div>
+          <div class="dest-desc">World-famous powdery white sand, turquoise waters, and vibrant nightlife on a stunning 4km stretch.</div>
+          <div class="dest-footer">
+            <div class="dest-price">
+              <div class="dest-price-num">₱7,800</div>
+              <div class="dest-price-label">per person / 4D3N</div>
+            </div>
+            <div>
+              <div class="dest-rating"><span class="stars">★★★★☆</span> 4.7</div>
+              <a href="search.html" class="btn-primary" style="padding:8px 18px;font-size:0.8rem;margin-top:8px;">Add to Basket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY LAKBAY -->
+<section class="section" style="background:var(--ocean-pale);">
+  <div class="section-inner">
+    <div class="section-header center" data-aos="fade-up">
+      <span class="section-label">Why Choose Us</span>
+      <h2 class="section-title">The Lakbay Difference</h2>
+      <p class="section-sub">We're not just a booking platform — we're your Filipino travel companions, born and raised here.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feat-icon">🇵🇭</div>
+        <div class="feat-title">100% Filipino</div>
+        <div class="feat-desc">Built by Filipinos who know every hidden gem, local shortcut, and secret beach from Luzon to Mindanao.</div>
+      </div>
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feat-icon">🛡️</div>
+        <div class="feat-title">DOT Accredited</div>
+        <div class="feat-desc">Fully licensed and accredited by the Department of Tourism — your safety and satisfaction guaranteed.</div>
+      </div>
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feat-icon">💰</div>
+        <div class="feat-title">Best Price Promise</div>
+        <div class="feat-desc">We match any lower price found within 24 hours. Book confidently knowing you're getting the best deal.</div>
+      </div>
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feat-icon">📱</div>
+        <div class="feat-title">Real-Time Tracking</div>
+        <div class="feat-desc">Track your flights, tour bookings, and hotel reservations live from our app or website at any time.</div>
+      </div>
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="feat-icon">🧺</div>
+        <div class="feat-title">Yellow Basket System</div>
+        <div class="feat-desc">Build your entire trip in one basket — mix flights, tours, and hotels then check out in a single step.</div>
+      </div>
+      <div class="feat-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="feat-icon">☎️</div>
+        <div class="feat-title">24/7 Local Support</div>
+        <div class="feat-desc">Filipino-speaking travel experts are available around the clock to help you before, during, and after your trip.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS PREVIEW -->
+<section class="section" style="background:white;">
+  <div class="section-inner">
+    <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+      <div>
+        <span class="section-label">Traveler Stories</span>
+        <h2 class="section-title" style="margin-bottom:0">What Our Guests Say</h2>
+      </div>
+      <a href="reviews.html" class="btn-outline">Read All Reviews →</a>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:var(--ocean);">MR</div>
+          <div>
+            <div class="reviewer-name">Maria Reyes</div>
+            <div class="reviewer-loc">📍 Quezon City</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Lakbay made our family Palawan trip completely seamless. The basket checkout where I could combine flights, resort, and island hopping tours was genius. Everything was perfect!"</div>
+        <div class="review-trip">✈ El Nido Family Package</div>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:var(--tropical);">JD</div>
+          <div>
+            <div class="reviewer-name">Juan dela Cruz</div>
+            <div class="reviewer-loc">📍 Davao City</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"The real-time booking tracker was incredible — I could see my hotel confirmation update in real time. The team is very responsive and genuinely passionate about the Philippines."</div>
+        <div class="review-trip">🏝 Siargao Surf Weekend</div>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:var(--coral);">AC</div>
+          <div>
+            <div class="reviewer-name">Ana Cunanan</div>
+            <div class="reviewer-loc">📍 Cebu City</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Best price I found anywhere for our Boracay honeymoon. The Lakbay team added a complimentary sunset cruise — now that is Filipino hospitality at its finest!"</div>
+        <div class="review-trip">🌅 Boracay Honeymoon Package</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="section-label" style="color:var(--gold);text-align:center;display:block;">Ready to Explore?</span>
+    <h2>Your Philippine Adventure <em style="font-style:italic;">Starts Here</em></h2>
+    <p>Join over 2,400 travelers who have explored the Philippines with Lakbay. Flights, tours, and hotels — all in one basket.</p>
+    <div class="cta-btns">
+      <a href="search.html" class="btn-white">Browse Packages 🏝</a>
+      <a href="contact.html" class="btn-woutline">Talk to an Expert</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div>
+      <div class="footer-tagline">Your trusted full-service travel agency for discovering the 7,641 islands of the Philippines. DOT Accredited. Filipino-owned.</div>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">✈</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <div class="footer-links">
+        <a href="search.html" class="footer-link">Book Flights</a>
+        <a href="search.html" class="footer-link">Tour Packages</a>
+        <a href="search.html" class="footer-link">Hotel Reservations</a>
+        <a href="search.html" class="footer-link">Island Hopping</a>
+        <a href="search.html" class="footer-link">Group Travel</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">About Lakbay</a>
+        <a href="about.html#team" class="footer-link">Our Team</a>
+        <a href="suppliers.html" class="footer-link">Our Partners</a>
+        <a href="reviews.html" class="footer-link">Reviews</a>
+        <a href="contact.html" class="footer-link">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-links">
+        <div class="footer-link">📞 +63 2 8888 LAKBAY</div>
+        <div class="footer-link">📧 hello@lakbay.ph</div>
+        <div class="footer-link">📍 Makati City, Metro Manila</div>
+        <div class="footer-link">⏰ Mon–Sat 8AM–9PM</div>
+        <a href="tracker.html" class="footer-link">🔍 Track My Booking</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Lakbay Travel Agency. All rights reserved. DOT Accredited.</span>
+    <span>Privacy Policy · Terms of Service · Sitemap</span>
+  </div>
+</footer>
+
+<style>
+.cat-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 24px 16px;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.cat-card:hover { border-color: var(--ocean); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.cat-card-icon { width: 56px; height: 56px; border-radius: 14px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.cat-card-label { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; color: var(--text-dark); }
+.cat-card-sub { font-size: 0.75rem; color: var(--text-muted); }
+</style>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Cart count from localStorage
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('lakbayCart') || '[]');
+  document.getElementById('cartCount').textContent = cart.length;
+}
+updateCartCount();
+
+// Search tabs
+function switchTab(el, type) {
+  document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+
+// Initialize elegant date pickers
+document.addEventListener('DOMContentLoaded', function() {
+  // Departure date picker
+  const departurePicker = flatpickr("#departure-date", {
+    dateFormat: "F j, Y",
+    minDate: "today",
+    theme: "light",
+    monthSelectorType: "dropdown",
+    yearSelectorType: "dropdown", 
+    showMonths: 1,
+    onChange: function(selectedDates, dateStr, instance) {
+      // Set return date minimum to departure date + 1 day
+      if (selectedDates.length > 0) {
+        const minReturn = new Date(selectedDates[0]);
+        minReturn.setDate(minReturn.getDate() + 1);
+        returnPicker.set('minDate', minReturn);
+      }
+    }
+  });
+  
+  // Return date picker
+  const returnPicker = flatpickr("#return-date", {
+    dateFormat: "F j, Y",
+    minDate: "today",
+    theme: "light", 
+    monthSelectorType: "dropdown",
+    yearSelectorType: "dropdown",
+    showMonths: 1
+  });
+  
+  // Close glass dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.glass-dropdown.open').forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  });
+});
+
+// Glass dropdown functions
+function toggleGlassDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const isOpen = dropdown.classList.contains('open');
+  
+  // Close all dropdowns first
+  document.querySelectorAll('.glass-dropdown').forEach(d => d.classList.remove('open'));
+  
+  // Toggle current dropdown
+  if (!isOpen) {
+    dropdown.classList.add('open');
+  }
+}
+
+function selectFrom(value, dropdownId) {
+  document.getElementById('selectedFrom').textContent = value;
+  document.getElementById(dropdownId).classList.remove('open');
+}
+
+function selectTo(value, dropdownId) {
+  document.getElementById('selectedTo').textContent = value;
+  document.getElementById(dropdownId).classList.remove('open');
+}
+
+function selectPassenger(value, dropdownId) {
+  document.getElementById('selectedPassengers').textContent = value;
+  document.getElementById(dropdownId).classList.remove('open');
+}
+
+function selectClass(value, dropdownId) {
+  document.getElementById('selectedClass').textContent = value;
+  document.getElementById(dropdownId).classList.remove('open');
+}
+</script>
+</body>
+</html>

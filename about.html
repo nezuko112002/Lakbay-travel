@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link">Partners</a>
+    <a href="about.html" class="nav-link active">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="about.html" class="nav-link active">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner" data-aos="fade-up">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>About</span></nav>
+      <span class="page-hero-label">Our Story</span>
+      <h1>Born in the Philippines,<br/><em style="font-style:italic;color:var(--gold);">Built for the World</em></h1>
+      <p>Lakbay was founded to share the undiscovered beauty of the Philippines with every kind of traveler — from the secret shores of Palawan to the misty highlands of Cordillera.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT COMPANY -->
+  <section class="section" style="background:white;">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div data-aos="fade-right">
+          <span class="section-label">About Lakbay</span>
+          <h2 class="section-title">We Don't Just Book Trips.<br/><em>We Craft Journeys.</em></h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:20px;">Lakbay (Filipino for <em>journey</em>) was founded in 2018 by three friends who were tired of generic travel packages that missed what makes the Philippines truly magical — the warmth of the people, the hidden coves only locals know, and the stories woven into every island.</p>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:28px;">Today, we are a DOT-accredited full-service travel agency offering flights, island tours, cultural experiences, and hotel bookings across all 7,641 islands. Every package is personally curated by our team of Filipino travel experts.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div style="background:var(--ocean-pale);border-radius:var(--radius);padding:20px;text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--ocean);">2018</div>
+              <div style="font-size:0.82rem;color:var(--text-muted);">Founded</div>
+            </div>
+            <div style="background:var(--ocean-pale);border-radius:var(--radius);padding:20px;text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--ocean);">2,400+</div>
+              <div style="font-size:0.82rem;color:var(--text-muted);">Trips Booked</div>
+            </div>
+            <div style="background:var(--ocean-pale);border-radius:var(--radius);padding:20px;text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--ocean);">120+</div>
+              <div style="font-size:0.82rem;color:var(--text-muted);">Destinations</div>
+            </div>
+            <div style="background:var(--ocean-pale);border-radius:var(--radius);padding:20px;text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--ocean);">98%</div>
+              <div style="font-size:0.82rem;color:var(--text-muted);">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="background:linear-gradient(160deg,var(--ocean-deep),var(--ocean));border-radius:var(--radius-xl);padding:40px;color:white;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-20px;right:-20px;width:160px;height:160px;background:rgba(255,255,255,0.05);border-radius:50%;"></div>
+            <div style="position:absolute;bottom:-40px;left:-20px;width:200px;height:200px;background:rgba(255,255,255,0.03);border-radius:50%;"></div>
+            <div style="position:relative;z-index:1;">
+              <div style="font-size:2.5rem;margin-bottom:16px;">🇵🇭</div>
+              <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:16px;">Our Mission</h3>
+              <p style="opacity:0.85;line-height:1.8;margin-bottom:24px;">"To connect every traveler to the authentic soul of the Philippines — its islands, its stories, and its people — through expertly curated, responsibly managed travel experiences."</p>
+              <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:20px;">
+                <div style="font-size:0.78rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Our Values</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  <span style="background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:50px;font-size:0.8rem;">🌿 Sustainability</span>
+                  <span style="background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:50px;font-size:0.8rem;">🤝 Bayanihan</span>
+                  <span style="background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:50px;font-size:0.8rem;">✨ Authenticity</span>
+                  <span style="background:rgba(255,255,255,0.12);padding:6px 14px;border-radius:50px;font-size:0.8rem;">❤️ Malasakit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PRODUCTS/SERVICES -->
+  <section class="section" style="background:var(--sand);">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Our Products & Services</h2>
+        <p class="section-sub">Everything you need for the perfect Philippine adventure, all under one roof.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;">
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">✈️</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">Domestic & International Flights</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Best-rate flights on all Philippine carriers — PAL, Cebu Pacific, AirAsia. We handle booking, seat selection, and rebooking.</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">🏝️</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">Island Hopping Tours</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Curated island-hopping packages from El Nido to Coron, Siargao to Caramoan — with guides, equipment, and lunch included.</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">🏨</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">Hotel & Resort Bookings</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Handpicked accommodations from budget beach huts to 5-star luxury resorts — vetted and rated by our team.</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">🎎</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">Cultural & Heritage Tours</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Explore Vigan's heritage streets, the Banaue Rice Terraces, and the Chocolate Hills with expert local guides.</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">🧗</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">Adventure Packages</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Scuba diving, surfing, volcano trekking, canyoneering — thrilling adventures with safety-certified operators.</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);">
+          <div style="font-size:2rem;margin-bottom:16px;">📦</div>
+          <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:10px;">All-Inclusive Packages</h3>
+          <p style="font-size:0.875rem;color:var(--text-mid);line-height:1.6;">Bundled flights + hotel + tours at unbeatable rates. Perfect for honeymoons, family vacations, and group trips.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNERS -->
+  <section class="section" style="background:white;">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-label">The Founders</span>
+        <h2 class="section-title">Meet the Owners</h2>
+        <p class="section-sub">Three Filipinos who turned their love of travel into a mission to share it with everyone.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:900px;margin:0 auto;">
+        <div style="text-align:center;">
+          <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--ocean),var(--tropical));display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:700;color:white;margin:0 auto 20px;border:4px solid var(--ocean-pale);">JR</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:4px;">Jose Reyes</h3>
+          <div style="font-size:0.82rem;color:var(--ocean);font-weight:600;margin-bottom:12px;">Co-Founder & CEO</div>
+          <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6;">Former tourism officer from Palawan. Jose has visited all 81 provinces of the Philippines and leads our destination strategy.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--coral),#e8735a);display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:700;color:white;margin:0 auto 20px;border:4px solid var(--coral-light);">MC</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:4px;">Maria Cruz</h3>
+          <div style="font-size:0.82rem;color:var(--ocean);font-weight:600;margin-bottom:12px;">Co-Founder & COO</div>
+          <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6;">Hotel management graduate from UST. Maria oversees all supplier partnerships and ensures every booking exceeds expectations.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#b8900a);display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:700;color:white;margin:0 auto 20px;border:4px solid var(--gold-light);">AL</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:4px;">Anton Lim</h3>
+          <div style="font-size:0.82rem;color:var(--ocean);font-weight:600;margin-bottom:12px;">Co-Founder & CTO</div>
+          <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.6;">Tech entrepreneur from Cebu who built the Lakbay platform from scratch. Anton ensures every booking experience is seamless.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team" style="background:var(--ocean-pale);">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-label">Our People</span>
+        <h2 class="section-title">The Lakbay Team</h2>
+        <p class="section-sub">15 passionate Filipinos spread across Luzon, Visayas, and Mindanao — ready to make your trip perfect.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background:var(--ocean);">KM</div>
+          <div class="team-name">Kristine Mendoza</div>
+          <div class="team-role">Head of Operations</div>
+          <div class="team-bio">7 years in hospitality. Kristine ensures every Lakbay booking runs like clockwork.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:var(--tropical);">RD</div>
+          <div class="team-name">Ramon Domingo</div>
+          <div class="team-role">Lead Tour Curator</div>
+          <div class="team-bio">Cebuano explorer and dive master who designs our signature island experiences.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:var(--coral);">SC</div>
+          <div class="team-name">Sofia Castro</div>
+          <div class="team-role">Customer Experience</div>
+          <div class="team-bio">Your go-to person before, during, and after your trip. Available 24/7 via chat.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#7b5ea7;">BT</div>
+          <div class="team-name">Ben Torres</div>
+          <div class="team-role">Flight Specialist</div>
+          <div class="team-bio">Former airline agent. Ben finds the best flight routes and prices for every itinerary.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:var(--gold);color:#1a1000;">LG</div>
+          <div class="team-name">Lara Garcia</div>
+          <div class="team-role">Marketing Manager</div>
+          <div class="team-bio">Travel blogger turned marketer. Lara shares the Philippines' stories with the world.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#1a6ba0;">DV</div>
+          <div class="team-name">Diego Villanueva</div>
+          <div class="team-role">Hotel Relations</div>
+          <div class="team-bio">Manages our 200+ hotel partner network from budget to luxury across the archipelago.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:var(--ocean-deep);">NB</div>
+          <div class="team-name">Nina Buenaventura</div>
+          <div class="team-role">Visayas Specialist</div>
+          <div class="team-bio">Born and raised in Iloilo. Nina is your expert guide to Central and Western Visayas.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#3d7a42;">MP</div>
+          <div class="team-name">Marco Perez</div>
+          <div class="team-role">Mindanao Specialist</div>
+          <div class="team-bio">Davaoeño adventurer who knows Mindanao's hidden waterfalls and cultural gems.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <span class="section-label" style="color:var(--gold);display:block;text-align:center;">Ready to Travel?</span>
+      <h2>Start Your Philippine Adventure Today</h2>
+      <p>Our team is here to help you plan the perfect trip. From first inquiry to safe return home.</p>
+      <div class="cta-btns">
+        <a href="search.html" class="btn-white">Browse Destinations 🏝</a>
+        <a href="contact.html" class="btn-woutline">Talk to Our Team</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div><div class="footer-tagline">Your trusted full-service travel agency for the Philippines. DOT Accredited. Filipino-owned.</div><div class="footer-socials"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">✈</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a href="about.html#team" class="footer-link">Our Team</a><a href="suppliers.html" class="footer-link">Partners</a><a href="reviews.html" class="footer-link">Reviews</a></div></div>
+    <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="search.html" class="footer-link">Book Flights</a><a href="search.html" class="footer-link">Tour Packages</a><a href="search.html" class="footer-link">Hotels</a><a href="search.html" class="footer-link">Island Hopping</a></div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links"><div class="footer-link">📞 +63 2 8888 LAKBAY</div><div class="footer-link">📧 hello@lakbay.ph</div><div class="footer-link">📍 Makati City, Manila</div></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency. All rights reserved.</span></div>
+</footer>
+
+<script>
+function updateCartCount() { const c=JSON.parse(localStorage.getItem('lakbayCart')||'[]'); document.getElementById('cartCount').textContent=c.length; }
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+updateCartCount();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>

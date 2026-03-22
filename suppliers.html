@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suppliers & Partners — Lakbay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="logo-mark">L</div> Lakbay</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="search.html" class="nav-link">Destinations</a>
+    <a href="suppliers.html" class="nav-link active">Partners</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="tracker.html" class="btn-ghost">Track Booking</a>
+    <a href="cart.html" class="cart-btn">🧺 Basket <span class="cart-count" id="cartCount">0</span></a>
+    <a href="search.html" class="btn-primary">Book Now →</a>
+  </div>
+  <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="search.html" class="nav-link">Destinations</a>
+  <a href="suppliers.html" class="nav-link active">Partners</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span><span>Suppliers & Partners</span></nav>
+      <span class="page-hero-label">Our Network</span>
+      <h1>Trusted Suppliers &<br/><em style="font-style:italic;color:var(--gold);">Partners</em></h1>
+      <p>Our carefully vetted network of 80+ local and national partners — airlines, hotels, tour operators, and transport providers.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:56px;">
+    <div class="section-inner">
+
+      <!-- TABS -->
+      <div class="tabs" id="supplierTabs">
+        <button class="tab-btn active" onclick="switchSupplierTab(this,'all')">All Partners</button>
+        <button class="tab-btn" onclick="switchSupplierTab(this,'airlines')">✈ Airlines</button>
+        <button class="tab-btn" onclick="switchSupplierTab(this,'hotels')">🏨 Hotels & Resorts</button>
+        <button class="tab-btn" onclick="switchSupplierTab(this,'tours')">🏝 Tour Operators</button>
+        <button class="tab-btn" onclick="switchSupplierTab(this,'transport')">🚌 Transport</button>
+      </div>
+
+      <!-- INVENTORY / SUPPLIER TABLE -->
+      <div style="margin-bottom:40px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
+          <div style="font-size:0.9rem;color:var(--text-muted);">Showing <strong id="supplierCount" style="color:var(--text-dark);">12</strong> suppliers</div>
+          <div class="search-bar-wrap" style="max-width:320px;">
+            <span style="padding:0 8px 0 14px;font-size:1rem;">🔍</span>
+            <input class="search-bar-input" type="text" id="supplierSearch" placeholder="Search suppliers…" oninput="renderSuppliers()" style="padding:10px 8px;" />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="supplierTable">
+            <thead>
+              <tr>
+                <th>Supplier</th>
+                <th>Category</th>
+                <th>Region</th>
+                <th>Services</th>
+                <th>Contract</th>
+                <th>Status</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody id="supplierBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUPPLIER CARDS -->
+      <div class="section-header">
+        <span class="section-label">Featured Partners</span>
+        <h2 class="section-title" style="margin-bottom:0">Spotlight Partners</h2>
+      </div>
+      <div class="suppliers-grid" id="supplierCards"></div>
+
+    </div>
+  </section>
+
+  <!-- BECOME A PARTNER CTA -->
+  <section style="background:var(--sand);padding:80px 5%;">
+    <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div>
+        <span class="section-label">Partner With Us</span>
+        <h2 class="section-title">Grow Your Business<br/>With Lakbay</h2>
+        <p style="color:var(--text-mid);line-height:1.8;margin-bottom:24px;">Are you a hotel, tour operator, or transport provider in the Philippines? Join our network of 80+ trusted partners and reach thousands of travelers every month.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-mid);">✅ Guaranteed bookings from our verified traveler base</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-mid);">✅ Free listing on our destinations page</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-mid);">✅ No upfront fees — commission-based model</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-mid);">✅ Dedicated account manager from Lakbay</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--text-mid);">✅ Access to our booking and tracking dashboard</li>
+        </ul>
+        <a href="contact.html" class="btn-primary">Apply to Become a Partner →</a>
+      </div>
+      <div style="background:var(--ocean);border-radius:var(--radius-xl);padding:40px;color:white;">
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin-bottom:20px;">Partner Requirements</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius);padding:16px;">
+            <div style="font-weight:600;margin-bottom:4px;">DOT Registration</div>
+            <div style="font-size:0.82rem;opacity:0.8;">Must be registered with the Department of Tourism PH</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius);padding:16px;">
+            <div style="font-weight:600;margin-bottom:4px;">Business Permit</div>
+            <div style="font-size:0.82rem;opacity:0.8;">Valid business permit from your local government unit</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius);padding:16px;">
+            <div style="font-weight:600;margin-bottom:4px;">Quality Standard</div>
+            <div style="font-size:0.82rem;opacity:0.8;">Must maintain a minimum 4.0/5.0 traveler rating</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius);padding:16px;">
+            <div style="font-weight:600;margin-bottom:4px;">Insurance Coverage</div>
+            <div style="font-size:0.82rem;opacity:0.8;">Valid liability insurance for operations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Explore Our Destinations</h2>
+      <p>All built on our trusted supplier network — quality guaranteed.</p>
+      <div class="cta-btns">
+        <a href="search.html" class="btn-white">Browse Packages 🏝</a>
+        <a href="contact.html" class="btn-woutline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div><div class="footer-tagline">Full-service Philippine travel agency. DOT Accredited.</div></div>
+    <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="search.html" class="footer-link">Destinations</a><a href="cart.html" class="footer-link">Basket</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a href="suppliers.html" class="footer-link">Partners</a><a href="reviews.html" class="footer-link">Reviews</a></div></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-links"><div class="footer-link">📞 +63 2 8888 LAKBAY</div><div class="footer-link">📧 hello@lakbay.ph</div></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Lakbay Travel Agency</span></div>
+</footer>
+
+<script>
+const suppliers = [
+  { name:'Philippine Airlines', cat:'airlines', region:'Nationwide', services:'Domestic & International Flights', contract:'Annual', status:'premium', rating:'4.8', icon:'✈', bg:'#e6f4ff' },
+  { name:'Cebu Pacific Air', cat:'airlines', region:'Nationwide', services:'Budget Domestic Flights', contract:'Annual', status:'active', rating:'4.5', icon:'✈', bg:'#fff3e6' },
+  { name:'AirAsia Philippines', cat:'airlines', region:'Nationwide', services:'Budget Flights', contract:'Annual', status:'active', rating:'4.3', icon:'✈', bg:'#ffe6e6' },
+  { name:'Lio Beach Resort', cat:'hotels', region:'El Nido, Palawan', services:'Beachfront Accommodation', contract:'Annual', status:'premium', rating:'4.9', icon:'🏨', bg:'#e6f4f4' },
+  { name:'Shangri-La Boracay', cat:'hotels', region:'Boracay, Aklan', services:'Luxury Resort', contract:'Annual', status:'premium', rating:'4.9', icon:'🏨', bg:'#f0f4ff' },
+  { name:'Siargao Bleu Resort', cat:'hotels', region:'Siargao, Surigao del Norte', services:'Surf Resort & Villas', contract:'Seasonal', status:'active', rating:'4.7', icon:'🏨', bg:'#e8f5ec' },
+  { name:'El Nido Tours', cat:'tours', region:'Palawan', services:'Island Hopping A, B, C, D', contract:'Annual', status:'premium', rating:'4.9', icon:'🏝', bg:'#e6f4f4' },
+  { name:'Siargao Island Tours', cat:'tours', region:'Siargao', services:'Cloud 9, Lagoon, Island Hop', contract:'Annual', status:'active', rating:'4.7', icon:'🏝', bg:'#e8f5ec' },
+  { name:'Bohol Bee Farm', cat:'tours', region:'Bohol, Visayas', services:'Eco-Tour & Organic Farm', contract:'Annual', status:'active', rating:'4.6', icon:'🏝', bg:'#f5f0e0' },
+  { name:'Ivan Tours Batanes', cat:'tours', region:'Batanes', services:'Cultural & Scenic Tours', contract:'Seasonal', status:'active', rating:'5.0', icon:'🏝', bg:'#e6f0ff' },
+  { name:'Kuya Kim Transport', cat:'transport', region:'Palawan', services:'Airport Transfers, Van Hire', contract:'Annual', status:'active', rating:'4.6', icon:'🚌', bg:'#f5e6ff' },
+  { name:'Sea Wind Bangka', cat:'transport', region:'El Nido, Coron', services:'Boat Transfers', contract:'Annual', status:'active', rating:'4.7', icon:'⛵', bg:'#e0f4ff' },
+];
+
+let activeTab = 'all';
+
+function switchSupplierTab(btn, tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeTab = tab;
+  renderSuppliers();
+}
+
+function renderSuppliers() {
+  const q = document.getElementById('supplierSearch').value.toLowerCase();
+  const filtered = suppliers.filter(s =>
+    (activeTab === 'all' || s.cat === activeTab) &&
+    (s.name.toLowerCase().includes(q) || s.region.toLowerCase().includes(q) || s.services.toLowerCase().includes(q))
+  );
+
+  document.getElementById('supplierCount').textContent = filtered.length;
+
+  document.getElementById('supplierBody').innerHTML = filtered.map(s => `
+    <tr>
+      <td><strong>${s.name}</strong></td>
+      <td><span class="badge badge-blue">${s.icon} ${s.cat}</span></td>
+      <td style="color:var(--text-muted);">${s.region}</td>
+      <td style="font-size:0.82rem;color:var(--text-mid);">${s.services}</td>
+      <td><span class="badge badge-gold">${s.contract}</span></td>
+      <td>${s.status === 'premium' ? '<span class="supplier-status status-premium">⭐ Premium</span>' : '<span class="supplier-status status-active">✓ Active</span>'}</td>
+      <td><span class="stars">★</span> <strong>${s.rating}</strong></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('supplierCards').innerHTML = filtered.slice(0,6).map(s => `
+    <div class="supplier-card">
+      <div class="supplier-logo" style="background:${s.bg};">${s.icon}</div>
+      <div class="supplier-info">
+        <div class="supplier-name">${s.name}</div>
+        <div class="supplier-type">${s.cat.charAt(0).toUpperCase()+s.cat.slice(1)}</div>
+        <div class="supplier-desc">${s.services}</div>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+          <span class="${s.status==='premium'?'supplier-status status-premium':'supplier-status status-active'}">${s.status==='premium'?'⭐ Premium':'✓ Active'}</span>
+          <span style="font-size:0.78rem;color:var(--text-muted);">★ ${s.rating}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateCartCount() { const c=JSON.parse(localStorage.getItem('lakbayCart')||'[]'); document.getElementById('cartCount').textContent=c.length; }
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40));
+updateCartCount();
+renderSuppliers();
+</script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 100,
+  delay: 0
+});
+</script>
+</body>
+</html>
