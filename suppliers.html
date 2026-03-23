@@ -153,9 +153,9 @@
 
 <script>
 const suppliers = [
-  { name:'Philippine Airlines', cat:'airlines', region:'Nationwide', services:'Domestic & International Flights', contract:'Annual', status:'premium', rating:'4.8', icon:'✈', bg:'#e6f4ff' },
-  { name:'Cebu Pacific Air', cat:'airlines', region:'Nationwide', services:'Budget Domestic Flights', contract:'Annual', status:'active', rating:'4.5', icon:'✈', bg:'#fff3e6' },
-  { name:'AirAsia Philippines', cat:'airlines', region:'Nationwide', services:'Budget Flights', contract:'Annual', status:'active', rating:'4.3', icon:'✈', bg:'#ffe6e6' },
+  { name:'Philippine Airlines', cat:'airlines', region:'Nationwide', services:'Domestic & International Flights', contract:'Annual', status:'premium', rating:'4.8', icon:'public/pal.jpeg', bg:'#e6f4ff' },
+  { name:'Cebu Pacific Air', cat:'airlines', region:'Nationwide', services:'Budget Domestic Flights', contract:'Annual', status:'active', rating:'4.5', icon:'public/pacific.png', bg:'#fff3e6' },
+  { name:'AirAsia Philippines', cat:'airlines', region:'Nationwide', services:'Budget Flights', contract:'Annual', status:'active', rating:'4.3', icon:'public/airasia.svg.png', bg:'#ffe6e6' },
   { name:'Lio Beach Resort', cat:'hotels', region:'El Nido, Palawan', services:'Beachfront Accommodation', contract:'Annual', status:'premium', rating:'4.9', icon:'🏨', bg:'#e6f4f4' },
   { name:'Shangri-La Boracay', cat:'hotels', region:'Boracay, Aklan', services:'Luxury Resort', contract:'Annual', status:'premium', rating:'4.9', icon:'🏨', bg:'#f0f4ff' },
   { name:'Siargao Bleu Resort', cat:'hotels', region:'Siargao, Surigao del Norte', services:'Surf Resort & Villas', contract:'Seasonal', status:'active', rating:'4.7', icon:'🏨', bg:'#e8f5ec' },
@@ -188,7 +188,14 @@ function renderSuppliers() {
   document.getElementById('supplierBody').innerHTML = filtered.map(s => `
     <tr>
       <td><strong>${s.name}</strong></td>
-      <td><span class="badge badge-blue">${s.icon} ${s.cat}</span></td>
+      <td>
+        <span class="badge badge-blue">
+          ${s.icon.includes('.jpg') || s.icon.includes('.jpeg') || s.icon.includes('.png') || s.icon.includes('.svg') 
+            ? `<img src="${s.icon}" alt="${s.name}" style="width:16px;height:16px;object-fit:contain;margin-right:4px;vertical-align:middle;" />`
+            : s.icon + ' '}
+          ${s.cat}
+        </span>
+      </td>
       <td style="color:var(--text-muted);">${s.region}</td>
       <td style="font-size:0.82rem;color:var(--text-mid);">${s.services}</td>
       <td><span class="badge badge-gold">${s.contract}</span></td>
@@ -199,7 +206,11 @@ function renderSuppliers() {
 
   document.getElementById('supplierCards').innerHTML = filtered.slice(0,6).map(s => `
     <div class="supplier-card">
-      <div class="supplier-logo" style="background:${s.bg};">${s.icon}</div>
+      <div class="supplier-logo" style="background:${s.bg};">
+        ${s.icon.includes('.jpg') || s.icon.includes('.jpeg') || s.icon.includes('.png') || s.icon.includes('.svg') 
+          ? `<img src="${s.icon}" alt="${s.name}" style="width:60px;height:60px;object-fit:contain;border-radius:8px;" />`
+          : s.icon}
+      </div>
       <div class="supplier-info">
         <div class="supplier-name">${s.name}</div>
         <div class="supplier-type">${s.cat.charAt(0).toUpperCase()+s.cat.slice(1)}</div>

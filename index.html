@@ -16,8 +16,11 @@
 <!-- NAV -->
 <nav class="nav" id="mainNav">
   <a href="index.html" class="nav-logo">
-    <div class="logo-mark">L</div>
-    Lakbay
+    <div class="logo-mark">
+      <span class="logo-icon">🏝️</span>
+      <span class="logo-text">L</span>
+    </div>
+    <span class="logo-brand">Lakbay</span>
   </a>
   <div class="nav-links">
     <a href="index.html" class="nav-link active">Home</a>
@@ -50,7 +53,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"><div class="hero-pattern"></div></div>
+  <div class="hero-bg">
+    <div class="hero-pattern"></div>
+    <div class="animated-waves">
+      <div class="wave wave-1"></div>
+      <div class="wave wave-2"></div>
+      <div class="wave wave-3"></div>
+    </div>
+  </div>
   <div class="hero-waves"></div>
   <div class="hero-content">
     <div class="hero-left fade-up">
@@ -62,17 +72,20 @@
         <a href="tracker.html" class="btn-woutline">Track My Booking</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="500">
-          <div class="hero-stat-num">2,400+</div>
+        <div class="hero-stat animated-stat" data-aos="fade-up" data-aos-delay="500" data-target="2400">
+          <div class="hero-stat-num" id="stat1">0</div>
           <div class="hero-stat-label">Happy Travelers</div>
+          <div class="stat-sparkle">✨</div>
         </div>
-        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="600">
-          <div class="hero-stat-num">120+</div>
+        <div class="hero-stat animated-stat" data-aos="fade-up" data-aos-delay="600" data-target="120">
+          <div class="hero-stat-num" id="stat2">0</div>
           <div class="hero-stat-label">Destinations</div>
+          <div class="stat-sparkle">🏝️</div>
         </div>
-        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="700">
-          <div class="hero-stat-num">98%</div>
+        <div class="hero-stat animated-stat" data-aos="fade-up" data-aos-delay="700" data-target="98">
+          <div class="hero-stat-num" id="stat3">0</div>
           <div class="hero-stat-label">Satisfaction Rate</div>
+          <div class="stat-sparkle">⭐</div>
         </div>
       </div>
     </div>
@@ -233,37 +246,55 @@
       <span class="section-label">Browse by Category</span>
       <h2 class="section-title">What Are You Looking For?</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;max-width:900px;margin:0 auto;">
-      <a href="search.html?cat=flights" class="cat-card" data-aos="zoom-in" data-aos-delay="100">
-        <div class="cat-card-icon" style="background:var(--ocean-pale);">✈️</div>
-        <div class="cat-card-label">Flights</div>
-        <div class="cat-card-sub">Domestic & Int'l</div>
-      </a>
-      <a href="search.html?cat=island" class="cat-card" data-aos="zoom-in" data-aos-delay="200">
-        <div class="cat-card-icon" style="background:#e8f5ec;">🏝️</div>
-        <div class="cat-card-label">Island Hopping</div>
-        <div class="cat-card-sub">7,641 islands</div>
-      </a>
-      <a href="search.html?cat=hotels" class="cat-card" data-aos="zoom-in" data-aos-delay="300">
-        <div class="cat-card-icon" style="background:var(--gold-light);">🏨</div>
-        <div class="cat-card-label">Hotels</div>
-        <div class="cat-card-sub">Best-rated stays</div>
-      </a>
-      <a href="search.html?cat=culture" class="cat-card" data-aos="zoom-in" data-aos-delay="400">
-        <div class="cat-card-icon" style="background:var(--coral-light);">🎎</div>
-        <div class="cat-card-label">Cultural Tours</div>
-        <div class="cat-card-sub">Heritage & arts</div>
-      </a>
-      <a href="search.html?cat=adventure" class="cat-card" data-aos="zoom-in" data-aos-delay="500">
-        <div class="cat-card-icon" style="background:#eef5e8;">🧗</div>
-        <div class="cat-card-label">Adventure</div>
-        <div class="cat-card-sub">Hike & dive</div>
-      </a>
-      <a href="search.html?cat=package" class="cat-card" data-aos="zoom-in" data-aos-delay="600">
-        <div class="cat-card-icon" style="background:#f0f0ff;">📦</div>
-        <div class="cat-card-label">All-in Packages</div>
-        <div class="cat-card-sub">Best value</div>
-      </a>
+    <div class="category-train-container">
+      <div class="category-train" id="categoryTrain">
+        <a href="search.html?cat=flights" class="cat-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="cat-card-icon" style="background:var(--ocean-pale);">✈️</div>
+          <div class="cat-card-label">Flights</div>
+          <div class="cat-card-sub">Domestic & Int'l</div>
+        </a>
+        <a href="search.html?cat=island" class="cat-card" data-aos="fade-right" data-aos-delay="200">
+          <div class="cat-card-icon" style="background:#e8f5ec;">🏝️</div>
+          <div class="cat-card-label">Island Hopping</div>
+          <div class="cat-card-sub">7,641 islands</div>
+        </a>
+        <a href="search.html?cat=hotels" class="cat-card" data-aos="fade-right" data-aos-delay="300">
+          <div class="cat-card-icon" style="background:var(--gold-light);">🏨</div>
+          <div class="cat-card-label">Hotels</div>
+          <div class="cat-card-sub">Best-rated stays</div>
+        </a>
+        <a href="search.html?cat=culture" class="cat-card" data-aos="fade-right" data-aos-delay="400">
+          <div class="cat-card-icon" style="background:var(--coral-light);">🎎</div>
+          <div class="cat-card-label">Cultural Tours</div>
+          <div class="cat-card-sub">Heritage & arts</div>
+        </a>
+        <a href="search.html?cat=adventure" class="cat-card" data-aos="fade-right" data-aos-delay="500">
+          <div class="cat-card-icon" style="background:#eef5e8;">🧗</div>
+          <div class="cat-card-label">Adventure</div>
+          <div class="cat-card-sub">Hike & dive</div>
+        </a>
+        <a href="search.html?cat=package" class="cat-card" data-aos="fade-right" data-aos-delay="600">
+          <div class="cat-card-icon" style="background:#f0f0ff;">📦</div>
+          <div class="cat-card-label">All-in Packages</div>
+          <div class="cat-card-sub">Best value</div>
+        </a>
+        <!-- Duplicate cards for seamless loop -->
+        <a href="search.html?cat=flights" class="cat-card">
+          <div class="cat-card-icon" style="background:var(--ocean-pale);">✈️</div>
+          <div class="cat-card-label">Flights</div>
+          <div class="cat-card-sub">Domestic & Int'l</div>
+        </a>
+        <a href="search.html?cat=island" class="cat-card">
+          <div class="cat-card-icon" style="background:#e8f5ec;">🏝️</div>
+          <div class="cat-card-label">Island Hopping</div>
+          <div class="cat-card-sub">7,641 islands</div>
+        </a>
+        <a href="search.html?cat=hotels" class="cat-card">
+          <div class="cat-card-icon" style="background:var(--gold-light);">🏨</div>
+          <div class="cat-card-label">Hotels</div>
+          <div class="cat-card-sub">Best-rated stays</div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -463,7 +494,13 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="footer-logo"><div class="logo-mark">L</div> Lakbay</div>
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <span class="logo-icon">🏝️</span>
+          <span class="logo-text">L</span>
+        </div>
+        <span class="logo-brand">Lakbay</span>
+      </div>
       <div class="footer-tagline">Your trusted full-service travel agency for discovering the 7,641 islands of the Philippines. DOT Accredited. Filipino-owned.</div>
       <div class="footer-socials">
         <a href="#" class="social-btn">f</a>
@@ -510,19 +547,155 @@
 </footer>
 
 <style>
+/* Category Train Styles */
+.category-train-container {
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  max-width: 100%;
+  padding: 0 5%;
+}
+.category-train {
+  display: flex;
+  gap: 20px;
+  animation: trainMove 8s linear infinite;
+  width: fit-content;
+}
+.category-train:hover {
+  animation-play-state: paused;
+}
+@keyframes trainMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 .cat-card {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 24px 16px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  padding: 24px 20px;
   background: white;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: all 0.25s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  min-width: 160px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-.cat-card:hover { border-color: var(--ocean); transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.cat-card-icon { width: 56px; height: 56px; border-radius: 14px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-.cat-card-label { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; color: var(--text-dark); }
-.cat-card-sub { font-size: 0.75rem; color: var(--text-muted); }
+.cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+  pointer-events: none;
+}
+.cat-card:hover::before {
+  left: 100%;
+}
+.cat-card:hover { 
+  border-color: var(--ocean); 
+  transform: translateY(-4px) scale(1.02); 
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+.cat-card-icon { 
+  width: 56px; 
+  height: 56px; 
+  border-radius: 14px; 
+  font-size: 1.5rem; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+.cat-card:hover .cat-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+.cat-card-label { 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+  margin-bottom: 4px; 
+  color: var(--text-dark); 
+}
+.cat-card-sub { 
+  font-size: 0.75rem; 
+  color: var(--text-muted); 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .category-train {
+    animation-duration: 6s;
+  }
+  .cat-card {
+    min-width: 140px;
+    padding: 20px 16px;
+  }
+}
+
+/* Hero Stats Animations */
+.hero-stat {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.hero-stat:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+.hero-stat-num {
+  position: relative;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--ocean), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+.animated-stat {
+  position: relative;
+  overflow: visible;
+}
+.stat-sparkle {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  animation: sparkleFloat 3s ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+}
+@keyframes sparkleFloat {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0) rotate(0deg) translateY(0px); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1) rotate(180deg) translateY(-5px); 
+  }
+}
+.hero-stat:nth-child(1) .stat-sparkle { --sparkle-delay: 0.5s; }
+.hero-stat:nth-child(2) .stat-sparkle { --sparkle-delay: 1s; }
+.hero-stat:nth-child(3) .stat-sparkle { --sparkle-delay: 1.5s; }
+
+/* Pulsing effect for stats */
+.stat-counting {
+  animation: statPulse 0.1s ease-in-out;
+}
+@keyframes statPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
 </style>
 
 <script>
@@ -548,6 +721,96 @@ function switchTab(el, type) {
   document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
 }
+
+// Category Train functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const train = document.getElementById('categoryTrain');
+  if (train) {
+    // Pause animation on hover
+    train.addEventListener('mouseenter', function() {
+      this.style.animationPlayState = 'paused';
+    });
+    
+    // Resume animation when not hovering
+    train.addEventListener('mouseleave', function() {
+      this.style.animationPlayState = 'running';
+    });
+    
+    // Optional: Add click drag functionality for mobile
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    
+    train.addEventListener('touchstart', function(e) {
+      isDragging = true;
+      startX = e.touches[0].pageX - train.offsetLeft;
+      scrollLeft = train.scrollLeft;
+      this.style.animationPlayState = 'paused';
+    });
+    
+    train.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - train.offsetLeft;
+      const walk = (x - startX) * 2;
+      train.scrollLeft = scrollLeft - walk;
+    });
+    
+    train.addEventListener('touchend', function() {
+      isDragging = false;
+      this.style.animationPlayState = 'running';
+    });
+  }
+
+  // Animated Counter for Hero Stats
+  function animateCounter(element, target, suffix = '', duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        element.textContent = target.toLocaleString() + suffix;
+        clearInterval(counter);
+        element.classList.remove('stat-counting');
+      } else {
+        element.textContent = Math.floor(start).toLocaleString() + suffix;
+        element.classList.add('stat-counting');
+      }
+    }, 16);
+  }
+
+  // Initialize stats animation with intersection observer
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stat = entry.target;
+        const target = parseInt(stat.dataset.target);
+        const statNum = stat.querySelector('.hero-stat-num');
+        
+        // Add different suffixes based on the stat
+        let suffix = '';
+        if (target === 2400) suffix = '+';
+        else if (target === 120) suffix = '+';
+        else if (target === 98) suffix = '%';
+        
+        // Start animation with delay
+        setTimeout(() => {
+          animateCounter(statNum, target, suffix, 2500);
+        }, 500);
+        
+        // Unobserve after animation starts
+        statsObserver.unobserve(stat);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  // Observe all animated stats
+  document.querySelectorAll('.animated-stat').forEach(stat => {
+    statsObserver.observe(stat);
+  });
+});
 </script>
 
 <!-- Flatpickr JS -->
